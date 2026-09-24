@@ -14,6 +14,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
+import sprigTop from "../images/sprig-top.png";
 import flowerOpen from "../images/flower-open.png";
 import { contact, areas } from "../config";
 ---
@@ -27,14 +28,30 @@ import { contact, areas } from "../config";
        it, running off the right-hand edge: this is the page someone reaches
        when they have decided to call, so it carries the resolved image. -->
   <section class="relative overflow-hidden pb-4 lg:pb-32">
+    <!-- Fatsia over the top-right corner, cut off by the top of the page. -->
     <div
-      class="hidden lg:block absolute right-0 bottom-0 w-[34%] max-w-[38rem]
+      class="hidden lg:block absolute right-0 -top-2 w-[19%] max-w-[18.75rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={sprigTop}
+        alt=""
+        widths={[300]}
+        sizes="19vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <!-- And the open flower below the card: the end of the sequence, on the
+         page someone reaches once they have decided to call. -->
+    <div
+      class="hidden lg:block absolute right-0 bottom-0 w-[34%] max-w-[34rem]
              pointer-events-none botanical"
     >
       <Image
         src={flowerOpen}
         alt=""
-        widths={[480, 652]}
+        widths={[420, 550]}
         sizes="34vw"
         class="w-full h-auto"
       />

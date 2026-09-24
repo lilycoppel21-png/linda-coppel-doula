@@ -17,7 +17,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import budHero from "../images/bud-hero.png";
-import leafSingle from "../images/leaf-single.png";
+import leafGlossy from "../images/leaf-glossy.png";
+import sprigLeft from "../images/sprig-left.png";
+import fatsiaDetail from "../images/fatsia-detail.png";
 import flowerOpen from "../images/flower-open.png";
 import { contact, areas, url } from "../config";
 ---
@@ -33,14 +35,29 @@ import { contact, areas, url } from "../config";
        the text. -->
   <section class="relative overflow-hidden lg:min-h-[31rem]">
     <div
-      class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2
-             w-[44%] max-w-[44rem] pointer-events-none botanical"
+      class="hidden lg:block absolute right-[2%] top-1/2 -translate-y-1/2
+             w-[34%] max-w-[31.5rem] pointer-events-none botanical"
     >
       <Image
         src={budHero}
         alt=""
-        widths={[480, 664]}
-        sizes="44vw"
+        widths={[380, 506]}
+        sizes="34vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <!-- A couple of glossy leaves low on the other side, mostly past the edge
+         of the screen. Small, and easy to miss — which is the point. -->
+    <div
+      class="hidden md:block absolute -left-[6%] bottom-2 w-[13%] max-w-[11rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={leafGlossy}
+        alt=""
+        widths={[221]}
+        sizes="13vw"
         class="w-full h-auto"
       />
     </div>
@@ -99,17 +116,33 @@ import { contact, areas, url } from "../config";
        Centred on a deeper green band, so it reads differently from the
        left-aligned opening above it. -->
   <section class="relative overflow-hidden bg-cream border-y border-rule">
-    <!-- A single leaf, small, low and off to one side: the quietest moment in
-         the sequence, between the closed bud above and the open flower below. -->
+    <!-- Fatsia coming in along the left-hand edge, against a wall the same
+         warmth as this band. Foliage is the middle of the sequence: past the
+         closed bud, not yet the open flower. -->
     <div
-      class="hidden sm:block absolute left-0 bottom-10 w-[19%] max-w-[13rem]
+      class="hidden sm:block absolute left-0 bottom-0 w-[20%] max-w-[18.75rem]
              pointer-events-none botanical"
     >
       <Image
-        src={leafSingle}
+        src={sprigLeft}
         alt=""
-        widths={[180, 275]}
-        sizes="17vw"
+        widths={[300]}
+        sizes="20vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <!-- And the tip of a fatsia leaf dropping in over the top-right corner,
+         cut off by the edge of the band. -->
+    <div
+      class="hidden lg:block absolute right-[6%] -top-[3%] w-[12%] max-w-[10rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={fatsiaDetail}
+        alt=""
+        widths={[202]}
+        sizes="12vw"
         class="w-full h-auto"
       />
     </div>
@@ -142,19 +175,19 @@ import { contact, areas, url } from "../config";
        page, and runs off the bottom-right corner. -->
   <section class="relative overflow-hidden mt-16 sm:mt-20 mb-4 text-center">
     <div
-      class="hidden lg:block absolute right-0 bottom-0 w-[38%] max-w-[36rem]
+      class="hidden lg:block absolute right-0 bottom-0 w-[36%] max-w-[34rem]
              pointer-events-none botanical"
     >
       <Image
         src={flowerOpen}
         alt=""
-        widths={[480, 652]}
-        sizes="40vw"
+        widths={[420, 550]}
+        sizes="36vw"
         class="w-full h-auto"
       />
     </div>
 
-    <div class="wrap relative py-12 pb-20 lg:pb-[23rem]">
+    <div class="wrap relative py-12 pb-20 lg:pb-[21rem]">
       <h2 class="page-title m-0">If you'd like to talk</h2>
 
       <p class="mt-5 mb-0 max-w-xl mx-auto">
@@ -179,7 +212,7 @@ import { contact, areas, url } from "../config";
       <Image
         src={flowerOpen}
         alt=""
-        widths={[480, 652]}
+        widths={[420, 550]}
         sizes="100vw"
         class="w-full h-auto"
       />
