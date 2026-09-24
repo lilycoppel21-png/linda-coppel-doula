@@ -11,7 +11,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
-import sprigRight from "../images/sprig-right.png";
+import fatsiaLeafFlip from "../images/fatsia-leaf-flip.png";
 import { contact, supportOffered } from "../config";
 ---
 
@@ -25,14 +25,14 @@ import { contact, supportOffered } from "../config";
          cropped by the edge of the screen. Foliage carries the middle of the
          site; the flower does not appear until "Get in touch". -->
     <div
-      class="hidden lg:block absolute right-0 top-0 w-[20%] max-w-[18.75rem]
+      class="hidden lg:block absolute right-[-4%] top-[-4%] w-[21%] max-w-[29.375rem]
              pointer-events-none botanical"
     >
       <Image
-        src={sprigRight}
+        src={fatsiaLeafFlip}
         alt=""
-        widths={[300]}
-        sizes="20vw"
+        widths={[470]}
+        sizes="21vw"
         class="w-full h-auto"
       />
     </div>

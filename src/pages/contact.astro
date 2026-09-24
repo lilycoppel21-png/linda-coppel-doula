@@ -14,7 +14,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
-import flowerBand from "../images/flower-band.png";
+import flowerOpen from "../images/flower-open.png";
 import { contact, areas } from "../config";
 ---
 
@@ -30,16 +30,15 @@ import { contact, areas } from "../config";
     <!-- And the open flower below the card: the end of the sequence, on the
          page someone reaches once they have decided to call. -->
     <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[19%]
-             pointer-events-none botanical band-shade"
+      class="hidden lg:block absolute right-[-6%] bottom-[4%] w-[24%] max-w-[34.75rem]
+             pointer-events-none botanical"
     >
       <Image
-        src={flowerBand}
+        src={flowerOpen}
         alt=""
-        widths={[550]}
-        sizes="19vw"
-        class="w-full h-full object-cover band-fade-left"
-        style="object-position: 74% 52%;"
+        widths={[556]}
+        sizes="24vw"
+        class="w-full h-auto"
       />
     </div>
 

@@ -20,7 +20,7 @@
      The page itself is a pale green. Cards and bands sit either side of it:
      cream lifts forward, deeper sage recedes. That's what stops a page of
      plain text feeling flat. */
-  --color-paper: #eef1e5;     /* the page background — pale green, warmed
+  --color-paper: #e8ecdd;     /* the page background — pale green, warmed
                                  slightly so the photographs, whose own
                                  backgrounds are a warm cream, meet it almost
                                  invisibly */
@@ -241,61 +241,6 @@
   .btn:hover {
     background-color: var(--color-green);
     text-decoration: none;
-  }
-
-  /* ----------------------------------------------------------
-     Botanical bands.
-     ----------------
-     A photograph filling the height of its section, cut cleanly by the section
-     edges and running off the side of the screen. Only the edge that faces the
-     words is faded, and the fade is applied here rather than baked into the
-     picture: the picture is cropped to fill the band, and a baked fade would be
-     cropped away with it, leaving a hard line down the middle of the page.
-     ---------------------------------------------------------- */
-  .band-fade-left {
-    --band-fade: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.6) 5%,
-      #000 13%
-    );
-    -webkit-mask-image: var(--band-fade);
-    mask-image: var(--band-fade);
-  }
-
-  /* The blend comes from a shadow the picture casts onto the page, not from
-     fading the leaves out. Sits on a wrapper so the mask above can't clip it. */
-  .band-shade {
-    box-shadow: -22px 0 34px -20px rgba(38, 54, 36, 0.22);
-  }
-
-  .band-shade-right {
-    box-shadow: 22px 0 34px -20px rgba(38, 54, 36, 0.22);
-  }
-
-  /* Stacked under the words on a narrow screen: the picture runs to both side
-     edges of the phone, so only the top and bottom meet the page. */
-  .band-fade-y {
-    --band-fade: linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 16%,
-      #000 84%,
-      transparent 100%
-    );
-    -webkit-mask-image: var(--band-fade);
-    mask-image: var(--band-fade);
-  }
-
-  .band-fade-right {
-    --band-fade: linear-gradient(
-      to left,
-      transparent 0%,
-      rgba(0, 0, 0, 0.6) 5%,
-      #000 13%
-    );
-    -webkit-mask-image: var(--band-fade);
-    mask-image: var(--band-fade);
   }
 
   /* ----------------------------------------------------------

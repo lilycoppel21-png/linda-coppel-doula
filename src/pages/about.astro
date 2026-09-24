@@ -10,7 +10,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
-import leafGlossy from "../images/leaf-glossy.png";
+import fatsiaLeaf from "../images/fatsia-leaf.png";
 import { site, contact, background } from "../config";
 ---
 
@@ -23,14 +23,14 @@ import { site, contact, background } from "../config";
     <!-- Magnolia leaves high on the right, running off the edge of the page.
          Small enough to be noticed only in passing. -->
     <div
-      class="hidden md:block absolute right-0 top-4 w-[16%] max-w-[13.5rem]
+      class="hidden md:block absolute left-[-4%] top-[-6%] w-[19%] max-w-[29.375rem]
              pointer-events-none botanical"
     >
       <Image
-        src={leafGlossy}
+        src={fatsiaLeaf}
         alt=""
-        widths={[221]}
-        sizes="16vw"
+        widths={[470]}
+        sizes="19vw"
         class="w-full h-auto"
       />
     </div>

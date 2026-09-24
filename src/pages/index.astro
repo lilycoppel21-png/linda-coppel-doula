@@ -16,9 +16,9 @@
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import budBand from "../images/bud-band.png";
-import fatsiaBand from "../images/fatsia-band.png";
-import flowerBand from "../images/flower-band.png";
+import budHero from "../images/bud-hero.png";
+import fatsiaLeaf from "../images/fatsia-leaf.png";
+import flowerOpen from "../images/flower-open.png";
 import { contact, areas, url } from "../config";
 ---
 
@@ -33,16 +33,15 @@ import { contact, areas, url } from "../config";
        the text. -->
   <section class="relative overflow-hidden border-b border-rule lg:min-h-[21rem]">
     <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[30%]
-             pointer-events-none botanical band-shade"
+      class="hidden lg:block absolute right-[-7%] top-1/2 -translate-y-1/2
+             w-[35%] max-w-[36.25rem] pointer-events-none botanical"
     >
       <Image
-        src={budBand}
+        src={budHero}
         alt=""
-        widths={[506]}
-        sizes="30vw"
-        class="w-full h-full object-cover band-fade-left"
-        style="object-position: 68% 46%;"
+        widths={[580]}
+        sizes="35vw"
+        class="w-full h-auto"
       />
     </div>
 
@@ -51,7 +50,7 @@ import { contact, areas, url } from "../config";
            photograph takes the right-hand side. The text runs to a little over
            half the width — wide enough that the two halves read as one
            composition rather than two, and still short of the picture. -->
-      <div class="max-w-xl lg:max-w-[58%]">
+      <div class="max-w-xl lg:max-w-[62%]">
         <h1 class="hero-title m-0">
           Time to listen.<br />Time to be there.
         </h1>
@@ -86,11 +85,11 @@ import { contact, areas, url } from "../config";
 
     <!-- Phones and tablets: the words come first and the picture follows,
          shown whole rather than cropped so its dissolved edges still read. -->
-    <div class="lg:hidden mt-8 sm:mt-10 botanical band-fade-y">
+    <div class="lg:hidden mt-8 sm:mt-10 botanical">
       <Image
-        src={budBand}
+        src={budHero}
         alt=""
-        widths={[356]}
+        widths={[580]}
         sizes="100vw"
         class="w-full h-auto"
       />
@@ -100,7 +99,7 @@ import { contact, areas, url } from "../config";
   <!-- ================= A short word, centred =================
        Centred on a deeper green band, so it reads differently from the
        left-aligned opening above it. -->
-  <section class="relative overflow-hidden bg-cream border-y border-rule">
+  <section class="relative overflow-hidden border-y border-rule">
     <!-- One fatsia leaf reaching in from the top-left corner on its own stem,
          turned so it hangs diagonally down into the section. The stem runs off
          the corner, so the plant reads as standing outside the page rather
@@ -108,16 +107,15 @@ import { contact, areas, url } from "../config";
          to the colour of this band, which is why it sits here and not on the
          green. -->
     <div
-      class="hidden sm:block absolute inset-y-0 left-0 w-[20%]
-             pointer-events-none botanical band-shade-right"
+      class="hidden sm:block absolute left-[-3%] top-[-7%] w-[22%] max-w-[29.375rem]
+             pointer-events-none botanical"
     >
       <Image
-        src={fatsiaBand}
+        src={fatsiaLeaf}
         alt=""
-        widths={[300]}
-        sizes="20vw"
-        class="w-full h-full object-cover band-fade-right"
-        style="object-position: 22% 45%;"
+        widths={[470]}
+        sizes="22vw"
+        class="w-full h-auto"
       />
     </div>
 
@@ -149,16 +147,15 @@ import { contact, areas, url } from "../config";
        page, and runs off the bottom-right corner. -->
   <section class="relative overflow-hidden mt-0 mb-0 border-t border-rule text-center lg:text-left">
     <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[19%]
-             pointer-events-none botanical band-shade"
+      class="hidden lg:block absolute right-[-6%] bottom-[3%] w-[26%] max-w-[34.75rem]
+             pointer-events-none botanical"
     >
       <Image
-        src={flowerBand}
+        src={flowerOpen}
         alt=""
-        widths={[550]}
-        sizes="19vw"
-        class="w-full h-full object-cover band-fade-left"
-        style="object-position: 74% 52%;"
+        widths={[556]}
+        sizes="26vw"
+        class="w-full h-auto"
       />
     </div>
 
@@ -183,11 +180,11 @@ import { contact, areas, url } from "../config";
     </div>
 
     <!-- Phones and tablets: beneath the words, closing the page. -->
-    <div class="lg:hidden mt-6 mb-2 botanical band-fade-y">
+    <div class="lg:hidden mt-6 mb-2 botanical">
       <Image
-        src={flowerBand}
+        src={flowerOpen}
         alt=""
-        widths={[380]}
+        widths={[556]}
         sizes="100vw"
         class="w-full h-auto"
       />
