@@ -20,8 +20,11 @@
      The page itself is a pale green. Cards and bands sit either side of it:
      cream lifts forward, deeper sage recedes. That's what stops a page of
      plain text feeling flat. */
-  --color-paper: #edf2e7;     /* the page background — pale green */
-  --color-cream: #f9fbf6;     /* cards, lifted above the page */
+  --color-paper: #eef1e5;     /* the page background — pale green, warmed
+                                 slightly so the photographs, whose own
+                                 backgrounds are a warm cream, meet it almost
+                                 invisibly */
+  --color-cream: #faf9f1;     /* cards and bands, lifted above the page */
   --color-sage: #dbe6d1;      /* full-width bands, set back from the page */
   --color-sage-deep: #c6d6ba; /* borders and hairlines on sage */
   --color-rule: #d4dfc9;      /* hairlines on the page background */

@@ -12,7 +12,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
 import sprigRight from "../images/sprig-right.png";
-import leafMagnolia from "../images/leaf-magnolia.png";
 import { contact, supportOffered } from "../config";
 ---
 
@@ -77,20 +76,6 @@ import { contact, supportOffered } from "../config";
        Two columns on wide screens so the list doesn't run down the page as one
        long thin ribbon. -->
   <section class="relative mt-16">
-    <!-- One magnolia leaf beside the heading, mostly off the page. -->
-    <div
-      class="hidden xl:block absolute -left-[3%] -top-8 w-[11%] max-w-[10rem]
-             pointer-events-none botanical"
-    >
-      <Image
-        src={leafMagnolia}
-        alt=""
-        widths={[205]}
-        sizes="11vw"
-        class="w-full h-auto"
-      />
-    </div>
-
     <div class="wrap relative">
     <h2 class="section-title m-0">Practical and emotional support</h2>
     <p class="mt-3 mb-0">This can include:</p>

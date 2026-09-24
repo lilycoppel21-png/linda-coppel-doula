@@ -11,8 +11,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
 import leafGlossy from "../images/leaf-glossy.png";
-import leafMagnolia from "../images/leaf-magnolia.png";
-import petalEdge from "../images/petal-edge.png";
 import { site, contact, background } from "../config";
 ---
 
@@ -60,19 +58,6 @@ import { site, contact, background } from "../config";
        Centred on a green band, so it reads as the personal heart of the page
        rather than more of the same column. -->
   <section class="relative overflow-hidden mt-16 sm:mt-24 bg-cream border-y border-rule">
-    <!-- Magnolia leaves in from the left, low and mostly past the edge. -->
-    <div
-      class="hidden md:block absolute -left-[4%] bottom-6 w-[17%] max-w-[14rem]
-             pointer-events-none botanical"
-    >
-      <Image
-        src={leafMagnolia}
-        alt=""
-        widths={[221]}
-        sizes="17vw"
-        class="w-full h-auto"
-      />
-    </div>
 
     <div class="wrap py-18 sm:py-24 text-center relative">
       <h2 class="section-title m-0">What matters to me</h2>
@@ -117,20 +102,6 @@ import { site, contact, background } from "../config";
 
   <!-- ================= Closing invitation ================= -->
   <section class="relative mt-16 sm:mt-20 mb-20 sm:mb-24 text-center">
-    <!-- The first of the open petals, small and late on the page. -->
-    <div
-      class="hidden lg:block absolute right-[4%] -top-[6%] w-[13%] max-w-[11rem]
-             pointer-events-none botanical"
-    >
-      <Image
-        src={petalEdge}
-        alt=""
-        widths={[220]}
-        sizes="13vw"
-        class="w-full h-auto"
-      />
-    </div>
-
     <div class="wrap relative">
     <p class="pull-line mb-0 max-w-2xl mx-auto">
       If you would like to talk about whether my support might help you or

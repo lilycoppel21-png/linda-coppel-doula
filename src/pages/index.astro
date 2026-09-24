@@ -16,9 +16,10 @@
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import budHero from "../images/bud-hero.png";
+import budBand from "../images/bud-band.png";
 import fatsiaCorner from "../images/fatsia-corner.png";
-import flowerCluster from "../images/flower-cluster.png";
+import leafRight from "../images/leaf-right.png";
+import flowerBand from "../images/flower-band.png";
 import { contact, areas, url } from "../config";
 ---
 
@@ -34,13 +35,13 @@ import { contact, areas, url } from "../config";
   <section class="relative overflow-hidden lg:min-h-[31rem]">
     <div
       class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2
-             w-[34%] max-w-[31.5rem] pointer-events-none botanical"
+             w-[30%] max-w-[25.5rem] pointer-events-none botanical"
     >
       <Image
-        src={budHero}
+        src={budBand}
         alt=""
-        widths={[380, 506]}
-        sizes="34vw"
+        widths={[356]}
+        sizes="30vw"
         class="w-full h-auto"
       />
     </div>
@@ -87,9 +88,9 @@ import { contact, areas, url } from "../config";
          shown whole rather than cropped so its dissolved edges still read. -->
     <div class="lg:hidden mt-8 sm:mt-10 botanical">
       <Image
-        src={budHero}
+        src={budBand}
         alt=""
-        widths={[480, 664]}
+        widths={[356]}
         sizes="100vw"
         class="w-full h-auto"
       />
@@ -107,14 +108,29 @@ import { contact, areas, url } from "../config";
          to the colour of this band, which is why it sits here and not on the
          green. -->
     <div
-      class="hidden sm:block absolute -left-[3%] -top-[5%] w-[23%] max-w-[18rem]
-             origin-top-left rotate-[8deg] pointer-events-none botanical"
+      class="hidden sm:block absolute -left-[2%] -top-[2%] w-[17%] max-w-[13.5rem]
+             origin-top-left rotate-[7deg] pointer-events-none botanical"
     >
       <Image
         src={fatsiaCorner}
         alt=""
-        widths={[240]}
-        sizes="30vw"
+        widths={[200]}
+        sizes="15vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <!-- Magnolia leaves in from the opposite edge, lower down, so the band is
+         held at both sides without anything sitting in the middle. -->
+    <div
+      class="hidden lg:block absolute right-0 bottom-[12%] w-[16%] max-w-[13.8rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={leafRight}
+        alt=""
+        widths={[221]}
+        sizes="16vw"
         class="w-full h-auto"
       />
     </div>
@@ -145,24 +161,24 @@ import { contact, areas, url } from "../config";
        the largest and most resolved of the photographs. It sits below the
        words rather than beside them, in a deliberately tall, empty stretch of
        page, and runs off the bottom-right corner. -->
-  <section class="relative overflow-hidden mt-20 sm:mt-28 mb-4 text-center">
+  <section class="relative overflow-hidden mt-20 sm:mt-28 mb-4 text-center lg:text-left">
     <div
-      class="hidden lg:block absolute -right-[5%] bottom-0 w-[27%] max-w-[25rem]
-             pointer-events-none botanical"
+      class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2
+             w-[28%] max-w-[23.75rem] pointer-events-none botanical"
     >
       <Image
-        src={flowerCluster}
+        src={flowerBand}
         alt=""
-        widths={[400]}
-        sizes="27vw"
+        widths={[380]}
+        sizes="28vw"
         class="w-full h-auto"
       />
     </div>
 
-    <div class="wrap relative pt-16 sm:pt-20 pb-20 lg:pb-[13rem]">
+    <div class="wrap relative pt-16 sm:pt-20 pb-20 lg:pb-24 lg:max-w-[58%]">
       <h2 class="page-title m-0">If you'd like to talk</h2>
 
-      <p class="mt-5 mb-0 max-w-xl mx-auto">
+      <p class="mt-5 mb-0 max-w-xl mx-auto lg:mx-0">
         There is no obligation in getting in touch. We can simply have a
         conversation about your situation and whether my support would be right
         for you.
@@ -182,9 +198,9 @@ import { contact, areas, url } from "../config";
     <!-- Phones and tablets: beneath the words, closing the page. -->
     <div class="lg:hidden mt-6 mb-2 botanical">
       <Image
-        src={flowerCluster}
+        src={flowerBand}
         alt=""
-        widths={[400]}
+        widths={[380]}
         sizes="100vw"
         class="w-full h-auto"
       />
