@@ -1,0 +1,6 @@
+<!-- A single leaf, in the site's greens. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#edf2e7"/>
+  <path d="M12 44 C 18 21 38 11 54 13 C 56 31 44 50 22 52 Z" fill="#6a9f65"/>
+  <path d="M12 52 C 21 39 34 27 52 18" stroke="#3f7448" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+</svg>

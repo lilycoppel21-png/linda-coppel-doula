@@ -1,0 +1,69 @@
+# Publishes the site to GitHub Pages as a PRIVATE-ISH PREVIEW.
+#
+# "Preview" here means two things:
+#   1. It is built with PUBLIC_PREVIEW=true, which puts a `noindex` tag on every
+#      page, and a robots.txt is written alongside it. Search engines are asked
+#      to stay away, so the link works for anyone you send it to but will not
+#      turn up in Google.
+#   2. It is served from a sub-folder, not a domain of its own.
+#
+# 👉 When the site goes live on a real domain, delete this file and deploy from
+#    that domain instead. Nothing else needs changing: PUBLIC_SITE, PUBLIC_BASE
+#    and PUBLIC_PREVIEW are only set here, and the site defaults to a root-level,
+#    indexable build without them.
+
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        env:
+          PUBLIC_SITE: https://lilycoppel21-png.github.io
+          PUBLIC_BASE: /linda-coppel-doula/
+          PUBLIC_PREVIEW: "true"
+        run: npm run build
+
+      - name: Ask search engines to stay away
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

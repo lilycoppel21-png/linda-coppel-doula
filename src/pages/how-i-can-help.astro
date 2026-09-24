@@ -1,0 +1,133 @@
+---
+/*
+  "How I can help" page.
+  ----------------------
+  For someone who has read the home page and wants to know what the support
+  actually looks like in practice.
+
+  The list of what the support offers comes from `supportOffered` in
+  src/config.ts. The wording around it is below.
+*/
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Botanical from "../components/Botanical.astro";
+import Leaf from "../components/Leaf.astro";
+import LeafDivider from "../components/LeafDivider.astro";
+import { contact, supportOffered } from "../config";
+---
+
+<BaseLayout
+  title="How I can help"
+  description="The support a Certified End of Life Doula can offer: time to talk and to listen, a regular and reassuring presence, help with advance planning, and support for family members and carers."
+>
+  <!-- ================= Page opening ================= -->
+  <section class="relative overflow-hidden">
+    <Botanical
+      variant="a"
+      swaySeconds={17}
+      class="hidden md:block absolute -top-8 -right-28 w-[26rem] lg:w-[34rem] opacity-90 pointer-events-none"
+    />
+
+    <div class="wrap relative pt-8 sm:pt-10">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-8">
+        <p class="label m-0">How I can help</p>
+
+        <h1 class="page-title mt-3 mb-0 max-w-2xl">
+          Non-medical support, shaped around the person
+        </h1>
+
+        <p class="lead mt-6 mb-0 max-w-2xl">
+          I believe every person has their own way of experiencing illness,
+          dying and death. My role is to listen carefully, and to understand
+          what is important to that particular person.
+        </p>
+      </div>
+
+      <div class="lg:col-span-4">
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= Time =================
+       Set plainly on the page. It's the heart of what the support is, and it
+       reads more quietly without a box drawn round it. -->
+  <section class="wrap mt-12">
+    <div class="max-w-2xl">
+      <h2 class="section-title m-0">Time</h2>
+      <p class="mt-3 mb-0">
+        Time to talk. Time to express feelings. Time to sit quietly and simply
+        be with the person. In a system where everyone is stretched, unhurried
+        time is often the thing most missing, and the thing most needed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= The list of practical and emotional support =========
+       Two columns on wide screens so the list doesn't run down the page as one
+       long thin ribbon. -->
+  <section class="wrap mt-16">
+    <h2 class="section-title m-0">Practical and emotional support</h2>
+    <p class="mt-3 mb-0">This can include:</p>
+
+    <ul class="mt-8 grid gap-x-12 gap-y-1 md:grid-cols-2 list-none m-0 p-0">
+      {
+        supportOffered.map((item) => (
+          <li class="flex gap-4 py-4 border-b border-rule">
+            <Leaf class="w-5 mt-2" />
+            <span>{item}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- ================= Families, and the clinical team =================
+       Side by side, so the page has a moment that isn't one column. -->
+  <section class="wrap mt-16">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="card">
+        <h2 class="section-title m-0">For families and carers</h2>
+        <p class="mt-3 mb-0">
+          I can become a familiar presence to be relied upon over time. For
+          working family members, for those living some distance away, and for
+          anyone coping with the emotional demands of caring, that reliability
+          can be invaluable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title m-0">Alongside your clinical care</h2>
+        <p class="mt-3 mb-0">
+          I work alongside existing GP, hospice, palliative care, nursing and
+          social services. My support complements professional clinical care,
+          and never in any way replaces it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Closing invitation ================= -->
+  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-sage">
+    <Botanical
+      variant="d"
+      swaySeconds={20}
+      class="hidden md:block absolute -bottom-20 -left-24 w-[24rem] opacity-85 pointer-events-none"
+    />
+
+    <div class="wrap py-14 sm:py-16 text-center relative">
+      <LeafDivider />
+
+      <p class="pull-line mt-10 mb-0 max-w-2xl mx-auto">
+        If any of this sounds like what you or someone you love needs, I would
+        be glad to talk it through with you.
+      </p>
+
+      <p class="mt-9 mb-0">
+        <a href={`tel:${contact.phoneTel}`} class="btn">
+          Call {contact.phoneDisplay}
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

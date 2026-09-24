@@ -1,0 +1,64 @@
+---
+/*
+  Botanical — draws one of the plantings defined in PlantDefs.astro.
+  ------------------------------------------------------------------
+  The artwork itself lives in the page's <defs> (see PlantDefs.astro, included
+  once by BaseLayout). This just points at it, so the same planting can appear
+  several times on a page without the path data being repeated.
+
+  Props:
+    variant — which vine: "a" falls in from the top-right corner, "b" is the
+              same with a shorter one behind it, "c" sweeps in low from the
+              left, "d" rises from the bottom-left corner.
+
+  Every vine is drawn starting beyond the edge of its own frame, so position
+  these so that edge sits off the page (or under a section boundary with
+  overflow-hidden). That is what makes the plant read as carrying on past the
+  corner rather than beginning in mid-air.
+    class   — Tailwind classes for sizing/positioning from the parent page
+    lean    — a few degrees of tilt, so two plantings never stand identically
+    sway    — a slow, small drift, as if there were air in the room.
+              Set false to hold it still. Always off for anyone who has asked
+              their system to reduce motion (see global.css).
+    swaySeconds — how long one full drift takes. Vary it between plantings so
+              they never move in step, which is what would look mechanical.
+
+  There is deliberately no `flip`. Mirroring a planting is the fastest way to
+  make a page look drafted rather than grown, and it was the main thing wrong
+  with the earlier version of this artwork.
+*/
+interface Props {
+  class?: string;
+  variant?: "a" | "b" | "c" | "d";
+  lean?: number;
+  sway?: boolean;
+  swaySeconds?: number;
+}
+
+const {
+  class: className = "",
+  variant = "a",
+  lean = 0,
+  sway = true,
+  swaySeconds = 14,
+} = Astro.props;
+
+const id = `plant${variant.toUpperCase()}`;
+---
+
+<svg
+  viewBox="0 0 420 320"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  class:list={["overflow-visible", className]}
+>
+  <g transform={lean ? `rotate(${lean} 380 20)` : undefined}>
+    <g
+      class:list={[sway && "sway"]}
+      style={sway ? `--sway-seconds:${swaySeconds}s` : undefined}
+    >
+      <use href={`#${id}`} />
+    </g>
+  </g>
+</svg>

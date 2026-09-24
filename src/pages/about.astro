@@ -1,0 +1,114 @@
+---
+/*
+  "About me" page.
+  ----------------
+  Who Linda is, what she brings, and the professional background behind it.
+
+  The background list comes from `background` in src/config.ts. The wording
+  around it is below.
+*/
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Botanical from "../components/Botanical.astro";
+import Leaf from "../components/Leaf.astro";
+import LeafDivider from "../components/LeafDivider.astro";
+import { site, contact, background } from "../config";
+---
+
+<BaseLayout
+  title="About me"
+  description="Linda Coppel is a Certified End of Life Doula trained at Crossfields Institute, with 16 years as a bereavement counsellor and over 30 years as a therapist."
+>
+  <!-- ================= Page opening ================= -->
+  <section class="relative overflow-hidden">
+    <Botanical
+      variant="b"
+      swaySeconds={15}
+      class="hidden md:block absolute -top-10 -right-24 w-[26rem] lg:w-[36rem] opacity-90 pointer-events-none"
+    />
+
+    <div class="wrap relative pt-8 sm:pt-10">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7">
+        <p class="label m-0">About me</p>
+
+        <h1 class="page-title mt-3 mb-0">{site.name}</h1>
+
+        <p class="lead mt-6 mb-0 max-w-xl">
+          I am a Certified End of Life Doula. I offer a gentle, calming
+          presence, respecting each person's beliefs, wishes and choices.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5">
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= What matters to me =================
+       Centred on a green band, so it reads as the personal heart of the page
+       rather than more of the same column. -->
+  <section class="relative overflow-hidden mt-12 sm:mt-16 bg-sage">
+    <Botanical
+      variant="c"
+      swaySeconds={18}
+      class="hidden md:block absolute -bottom-16 -left-28 w-[26rem] opacity-85 pointer-events-none"
+    />
+
+    <div class="wrap py-14 sm:py-16 text-center relative">
+      <h2 class="section-title m-0">What matters to me</h2>
+
+      <div class="max-w-2xl mx-auto mt-5 prose-block">
+        <p>
+          My aim is to help people feel supported to live their life as fully as
+          possible in the time that remains, while supporting those close to
+          them through what can be an incredibly challenging time.
+        </p>
+        <p>
+          I bring compassion, warmth and gentleness, together with professional
+          experience and a willingness to meet each person exactly where they
+          are. I want to understand what gives meaning to someone's life, and to
+          value and respect their individual beliefs, needs and choices.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Professional background =================
+       As cards across the page rather than a stacked list. -->
+  <section class="wrap mt-16">
+    <h2 class="section-title m-0">Experience and professional background</h2>
+
+    <ul class="mt-8 grid gap-6 md:grid-cols-3 list-none m-0 p-0">
+      {
+        background.map((item) => (
+          <li class="card">
+            <Leaf class="w-9" />
+            <p class="font-display text-xl text-forest mt-4 mb-0">
+              {item.title}
+            </p>
+            {item.detail && <p class="mt-2 mb-0 text-muted">{item.detail}</p>}
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-8 mb-0 text-muted">{site.membership}</p>
+  </section>
+
+  <!-- ================= Closing invitation ================= -->
+  <section class="wrap mt-16 sm:mt-20 mb-20 sm:mb-24 text-center">
+    <LeafDivider />
+
+    <p class="pull-line mt-10 mb-0 max-w-2xl mx-auto">
+      If you would like to talk about whether my support might help you or
+      someone close to you, please do get in touch.
+    </p>
+
+    <p class="mt-9 mb-0">
+      <a href={`tel:${contact.phoneTel}`} class="btn">
+        Call {contact.phoneDisplay}
+      </a>
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+/*
+  Leaf — the single camellia leaf used as a bullet point and beside the name.
+  The drawing lives in PlantDefs.astro; this points at it.
+
+  Props:
+    class — Tailwind classes for sizing/positioning from the parent.
+*/
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 66 46"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  class:list={["shrink-0", className]}
+>
+  <use href="#leafMark" />
+</svg>

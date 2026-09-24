@@ -1,0 +1,242 @@
+/*
+  Global styles.
+  --------------
+  1. Loads Tailwind CSS (the utility classes used in the pages).
+  2. Defines the design "tokens" — colours and fonts — in one place.
+  3. Sets the base typography and a few reusable classes used across the pages.
+
+  To change the whole site's look, edit the @theme values below and nothing else.
+
+  A note on the choices here: the people reading this site are often tired,
+  anxious, or reading on a phone at a difficult moment. So the text is set
+  larger than usual, the line spacing is generous, and the colours are soft but
+  with enough contrast to stay easy to read.
+*/
+
+@import "tailwindcss";
+
+@theme {
+  /* --- Page colours ---
+     The page itself is a pale green. Cards and bands sit either side of it:
+     cream lifts forward, deeper sage recedes. That's what stops a page of
+     plain text feeling flat. */
+  --color-paper: #edf2e7;     /* the page background — pale green */
+  --color-cream: #f9fbf6;     /* cards, lifted above the page */
+  --color-sage: #dbe6d1;      /* full-width bands, set back from the page */
+  --color-sage-deep: #c6d6ba; /* borders and hairlines on sage */
+  --color-rule: #d4dfc9;      /* hairlines on the page background */
+
+  /* --- Text colours ---
+     All four are checked against both the pale green page and the cream cards. */
+  --color-forest: #22402a;    /* headings — deep, restful green */
+  --color-green: #366b40;     /* links and small marks — a true green */
+  --color-ink: #243026;       /* body text */
+  --color-muted: #566b58;     /* secondary text, labels, captions */
+
+  /* --- Leaf colours ---
+     Kept separate from the text colours on purpose. Text has to stay legible,
+     so it's dark and slightly muted. The leaves don't, so they get to be
+     properly green and alive. Three shades give the planting depth. */
+  --color-leaf-light: #9cc492;
+  --color-leaf: #6a9f65;
+  --color-leaf-deep: #3f7448;
+
+  /* --- Fonts ---
+     Lora = warm, calm serif (headings). Karla = friendly humanist sans (body).
+     The font files are loaded in src/layouts/BaseLayout.astro. */
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* --- Base document ---
+   These live in @layer base so Tailwind utilities in the markup still win. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.125rem; /* 18px — deliberately larger than a typical site */
+    line-height: 1.75;
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--color-forest);
+  }
+
+  /* Default link styling, mainly for links inside paragraphs. */
+  a {
+    color: var(--color-green);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(in srgb, var(--color-green) 40%, transparent);
+  }
+
+  a:hover {
+    text-decoration-color: var(--color-green);
+  }
+}
+
+/* --- Accessibility: a clear, visible keyboard focus ring --- */
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* --- The planting's slow drift ---
+   A degree either side, over about a quarter of a minute. It should read as
+   air moving in the room rather than as an animation; if you can watch it
+   happening, it's too much. Each planting is given a different duration in the
+   markup so they never move in step.
+
+   The whole thing is switched off below for anyone who has asked their system
+   to reduce motion. */
+.sway {
+  transform-box: view-box;
+  transform-origin: 50% 100%;
+  animation: sway var(--sway-seconds, 14s) ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-0.85deg);
+  }
+  50% {
+    transform: rotate(0.85deg);
+  }
+}
+
+/* --- Respect users who prefer less motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* The planting holds still. */
+  .sway {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Reusable classes. In the components layer so single utilities in the
+   markup can still override individual properties when needed.
+   ============================================================ */
+@layer components {
+  /* The page's content column. Used on every section so the left and right
+     edges line up down the whole site. Change the max-width here and every
+     page follows. */
+  .wrap {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Small uppercase label used above sections. */
+  .label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* The large, quiet line at the top of the home page. */
+  .hero-title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+
+  /* Page titles on the inner pages. */
+  .page-title {
+    font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* Section headings (H2). */
+  .section-title {
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+  }
+
+  /* The serif lead line that sits under a title. */
+  .lead {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.1875rem, 2.2vw, 1.5rem);
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+
+  /* A large centred serif line, used on its own as a moment of pause. */
+  .pull-line {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.4vw, 2.125rem);
+    line-height: 1.4;
+    color: var(--color-forest);
+  }
+
+  /* Body copy blocks — spaced paragraphs. */
+  .prose-block > p + p {
+    margin-top: 1.15em;
+  }
+
+  /* A cream card, lifted off the pale green page.
+     No outline: a soft shadow reads as something resting on the page, where a
+     1px border reads as a box drawn round it. */
+  .card {
+    background-color: var(--color-cream);
+    border-radius: 1.75rem;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 1px 2px rgb(38 62 42 / 0.04), 0 8px 24px -12px rgb(38 62 42 / 0.16);
+  }
+
+  /* The main call button (used for the phone number). */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.9375rem 1.75rem;
+    border-radius: 9999px;
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+  }
+
+  .btn:hover {
+    background-color: var(--color-green);
+    text-decoration: none;
+  }
+}

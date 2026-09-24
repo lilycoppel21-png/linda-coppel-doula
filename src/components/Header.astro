@@ -1,0 +1,67 @@
+---
+/*
+  Header — name and role on the left, menu on the right, then a phone line.
+
+  The menu items come from `site.nav` in src/config.ts.
+
+  On narrow phones the menu drops onto its own line underneath the name rather
+  than hiding behind a hamburger button: there are only three links, and one
+  fewer tap matters for someone in a hurry.
+*/
+import { site, contact, url, isCurrent } from "../config";
+import Leaf from "./Leaf.astro";
+
+const path = Astro.url.pathname;
+---
+
+<header class="w-full">
+  <div class="bg-cream border-b border-rule">
+    <div
+      class="wrap py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-y-4 gap-x-6"
+    >
+      <a href={url("/")} class="no-underline group flex items-center gap-3">
+        <Leaf class="w-8 shrink-0" />
+        <span>
+          <span
+            class="block font-display text-xl text-forest group-hover:text-green transition-colors"
+          >
+            {site.name}
+          </span>
+          <span class="block label mt-0.5">{site.role}</span>
+        </span>
+      </a>
+
+      <nav aria-label="Main">
+        <ul class="flex flex-wrap items-center gap-x-7 gap-y-2 list-none m-0 p-0">
+          {
+            site.nav.map((item) => (
+              <li>
+                <a
+                  href={url(item.href)}
+                  aria-current={isCurrent(path, item.href) ? "page" : undefined}
+                  class:list={[
+                    "no-underline transition-colors hover:text-green",
+                    isCurrent(path, item.href) ? "text-green font-medium" : "text-ink",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- A quiet, always-visible phone line. Someone who has decided to call
+       shouldn't have to go looking for the number. -->
+  <div class="bg-sage border-b border-sage-deep">
+    <p class="wrap py-2.5 text-center sm:text-left text-base text-forest m-0">
+      To talk about how I might help, call
+      <a href={`tel:${contact.phoneTel}`} class="font-semibold whitespace-nowrap">
+        {contact.phoneDisplay}
+      </a>
+    </p>
+  </div>
+</header>

@@ -1,0 +1,99 @@
+---
+/*
+  BaseLayout — the shell every page sits inside.
+  ---------------------------------------------
+  It provides the <head> (fonts, page title, meta tags), the header and the
+  footer. Each page sets its own content width, so this doesn't impose one.
+
+  Pages use it like this:
+
+    ---
+    import BaseLayout from "../layouts/BaseLayout.astro";
+    ---
+    <BaseLayout title="About me" description="...">
+      ...page content...
+    </BaseLayout>
+*/
+import { site, url } from "../config";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PlantDefs from "../components/PlantDefs.astro";
+import "../styles/global.css";
+
+interface Props {
+  /* Shown in the browser tab, before the name. Leave out on the home page. */
+  title?: string;
+  /* Meta description for this page. Falls back to the site description. */
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+
+// Home page reads "Linda Coppel — End of Life Doula".
+// Inner pages read "About me — Linda Coppel".
+const pageTitle = title
+  ? `${title} — ${site.name}`
+  : `${site.name} — ${site.role}`;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+/*
+  Preview builds ask search engines to stay away, so a link can be shared with
+  a handful of people without the site turning up in search results. It is set
+  by the deploy workflow, not by hand — a normal build is always indexable.
+*/
+const isPreview = import.meta.env.PUBLIC_PREVIEW === "true";
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
+    <link rel="sitemap" href={url("/sitemap-index.xml")} />
+
+    {isPreview && <meta name="robots" content="noindex, nofollow" />}
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph: how the page looks when shared in a message or on social. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Fonts. Lora for headings, Karla for body text.
+         If you change the fonts in global.css, update this link too. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Karla:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <!-- Lets keyboard and screen reader users jump straight past the menu. -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-forest focus:px-4 focus:py-2 focus:text-paper focus:no-underline"
+    >
+      Skip to content
+    </a>
+
+    <!-- All the plant artwork, defined once and referenced by every page. -->
+    <PlantDefs />
+
+    <Header />
+
+    <main id="main" class="flex-1 w-full">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
