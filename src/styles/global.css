@@ -244,6 +244,53 @@
   }
 
   /* ----------------------------------------------------------
+     Botanical bands.
+     ----------------
+     A photograph filling the height of its section, cut cleanly by the section
+     edges and running off the side of the screen. Only the edge that faces the
+     words is faded, and the fade is applied here rather than baked into the
+     picture: the picture is cropped to fill the band, and a baked fade would be
+     cropped away with it, leaving a hard line down the middle of the page.
+     ---------------------------------------------------------- */
+  .band-fade-left {
+    --band-fade: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 9%,
+      rgba(0, 0, 0, 0.75) 21%,
+      #000 34%
+    );
+    -webkit-mask-image: var(--band-fade);
+    mask-image: var(--band-fade);
+  }
+
+  /* Stacked under the words on a narrow screen: the picture runs to both side
+     edges of the phone, so only the top and bottom meet the page. */
+  .band-fade-y {
+    --band-fade: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 16%,
+      #000 84%,
+      transparent 100%
+    );
+    -webkit-mask-image: var(--band-fade);
+    mask-image: var(--band-fade);
+  }
+
+  .band-fade-right {
+    --band-fade: linear-gradient(
+      to left,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 9%,
+      rgba(0, 0, 0, 0.75) 21%,
+      #000 34%
+    );
+    -webkit-mask-image: var(--band-fade);
+    mask-image: var(--band-fade);
+  }
+
+  /* ----------------------------------------------------------
      Botanical photography.
      ----------------------
      The photographs carry no mask and no frame. Each one has its soft edges
