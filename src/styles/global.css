@@ -24,10 +24,10 @@
                                  slightly so the photographs, whose own
                                  backgrounds are a warm cream, meet it almost
                                  invisibly */
-  --color-cream: #faf9f1;     /* cards and bands, lifted above the page */
+  --color-cream: #fdfcf5;     /* cards and bands, lifted above the page */
   --color-sage: #dbe6d1;      /* full-width bands, set back from the page */
   --color-sage-deep: #c6d6ba; /* borders and hairlines on sage */
-  --color-rule: #d4dfc9;      /* hairlines on the page background */
+  --color-rule: #c6d3b7;      /* hairlines and section dividers */
 
   /* --- Text colours ---
      All four are checked against both the pale green page and the cream cards. */
@@ -256,12 +256,21 @@
     --band-fade: linear-gradient(
       to right,
       transparent 0%,
-      rgba(0, 0, 0, 0.25) 9%,
-      rgba(0, 0, 0, 0.75) 21%,
-      #000 34%
+      rgba(0, 0, 0, 0.6) 5%,
+      #000 13%
     );
     -webkit-mask-image: var(--band-fade);
     mask-image: var(--band-fade);
+  }
+
+  /* The blend comes from a shadow the picture casts onto the page, not from
+     fading the leaves out. Sits on a wrapper so the mask above can't clip it. */
+  .band-shade {
+    box-shadow: -22px 0 34px -20px rgba(38, 54, 36, 0.22);
+  }
+
+  .band-shade-right {
+    box-shadow: 22px 0 34px -20px rgba(38, 54, 36, 0.22);
   }
 
   /* Stacked under the words on a narrow screen: the picture runs to both side
@@ -282,9 +291,8 @@
     --band-fade: linear-gradient(
       to left,
       transparent 0%,
-      rgba(0, 0, 0, 0.25) 9%,
-      rgba(0, 0, 0, 0.75) 21%,
-      #000 34%
+      rgba(0, 0, 0, 0.6) 5%,
+      #000 13%
     );
     -webkit-mask-image: var(--band-fade);
     mask-image: var(--band-fade);

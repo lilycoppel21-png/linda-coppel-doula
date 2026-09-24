@@ -18,7 +18,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import budBand from "../images/bud-band.png";
 import fatsiaBand from "../images/fatsia-band.png";
-import leafRight from "../images/leaf-right.png";
 import flowerBand from "../images/flower-band.png";
 import { contact, areas, url } from "../config";
 ---
@@ -32,27 +31,27 @@ import { contact, areas, url } from "../config";
 
        Below 1024px the picture moves underneath the words; see the block after
        the text. -->
-  <section class="relative overflow-hidden lg:min-h-[23rem]">
+  <section class="relative overflow-hidden border-b border-rule lg:min-h-[21rem]">
     <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[43%]
-             pointer-events-none botanical band-fade-left"
+      class="hidden lg:block absolute inset-y-0 right-0 w-[30%]
+             pointer-events-none botanical band-shade"
     >
       <Image
         src={budBand}
         alt=""
         widths={[506]}
-        sizes="43vw"
-        class="w-full h-full object-cover"
-        style="object-position: 46% 44%;"
+        sizes="30vw"
+        class="w-full h-full object-cover band-fade-left"
+        style="object-position: 68% 46%;"
       />
     </div>
 
-    <div class="wrap relative pt-24 sm:pt-32 lg:pt-14 pb-16 sm:pb-24 lg:pb-14">
+    <div class="wrap relative pt-24 sm:pt-32 lg:pt-10 pb-16 sm:pb-24 lg:pb-10">
       <!-- Below 1024px the words have the full column. From 1024px up the
            photograph takes the right-hand side. The text runs to a little over
            half the width — wide enough that the two halves read as one
            composition rather than two, and still short of the picture. -->
-      <div class="max-w-xl lg:max-w-[54%]">
+      <div class="max-w-xl lg:max-w-[58%]">
         <h1 class="hero-title m-0">
           Time to listen.<br />Time to be there.
         </h1>
@@ -109,36 +108,20 @@ import { contact, areas, url } from "../config";
          to the colour of this band, which is why it sits here and not on the
          green. -->
     <div
-      class="hidden sm:block absolute inset-y-0 left-0 w-[30%]
-             pointer-events-none botanical band-fade-right"
+      class="hidden sm:block absolute inset-y-0 left-0 w-[20%]
+             pointer-events-none botanical band-shade-right"
     >
       <Image
         src={fatsiaBand}
         alt=""
         widths={[300]}
-        sizes="30vw"
-        class="w-full h-full object-cover"
-        style="object-position: 46% 44%;"
+        sizes="20vw"
+        class="w-full h-full object-cover band-fade-right"
+        style="object-position: 22% 45%;"
       />
     </div>
 
-    <!-- Magnolia leaves in from the opposite edge, lower down, so the band is
-         held at both sides without anything sitting in the middle. -->
-    <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[12%]
-             pointer-events-none botanical band-fade-left"
-    >
-      <Image
-        src={leafRight}
-        alt=""
-        widths={[256]}
-        sizes="12vw"
-        class="w-full h-full object-cover"
-        style="object-position: 62% 50%;"
-      />
-    </div>
-
-    <div class="wrap py-16 sm:py-20 text-center relative">
+    <div class="wrap py-12 sm:py-16 text-center relative">
       <div class="max-w-2xl mx-auto prose-block">
         <p>
           When someone is diagnosed with a life limiting illness, life can
@@ -164,22 +147,22 @@ import { contact, areas, url } from "../config";
        the largest and most resolved of the photographs. It sits below the
        words rather than beside them, in a deliberately tall, empty stretch of
        page, and runs off the bottom-right corner. -->
-  <section class="relative overflow-hidden mt-0 mb-0 text-center lg:text-left">
+  <section class="relative overflow-hidden mt-0 mb-0 border-t border-rule text-center lg:text-left">
     <div
-      class="hidden lg:block absolute inset-y-0 right-0 w-[29%]
-             pointer-events-none botanical band-fade-left"
+      class="hidden lg:block absolute inset-y-0 right-0 w-[19%]
+             pointer-events-none botanical band-shade"
     >
       <Image
         src={flowerBand}
         alt=""
         widths={[550]}
-        sizes="29vw"
-        class="w-full h-full object-cover"
-        style="object-position: 58% 52%;"
+        sizes="19vw"
+        class="w-full h-full object-cover band-fade-left"
+        style="object-position: 74% 52%;"
       />
     </div>
 
-    <div class="wrap relative pt-16 sm:pt-20 pb-20 lg:pt-14 lg:pb-14 lg:max-w-[58%]">
+    <div class="wrap relative pt-16 sm:pt-20 pb-20 lg:pt-10 lg:pb-10 lg:max-w-[58%]">
       <h2 class="page-title m-0">If you'd like to talk</h2>
 
       <p class="mt-5 mb-0 max-w-xl mx-auto lg:mx-0">
