@@ -17,7 +17,7 @@
 import { site, url } from "../config";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import PlantDefs from "../components/PlantDefs.astro";
+import LeafMarkDefs from "../components/LeafMarkDefs.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -49,6 +49,11 @@ const isPreview = import.meta.env.PUBLIC_PREVIEW === "true";
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
+    <!-- Marks the page as having JavaScript, so the botanical photographs can
+         start hidden and fade in. Without it they are simply visible. -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
     <link rel="sitemap" href={url("/sitemap-index.xml")} />
@@ -85,8 +90,9 @@ const isPreview = import.meta.env.PUBLIC_PREVIEW === "true";
       Skip to content
     </a>
 
-    <!-- All the plant artwork, defined once and referenced by every page. -->
-    <PlantDefs />
+    <!-- The single drawn leaf mark, defined once and referenced by the header,
+         the footer and the list bullets. -->
+    <LeafMarkDefs />
 
     <Header />
 
@@ -95,5 +101,32 @@ const isPreview = import.meta.env.PUBLIC_PREVIEW === "true";
     </main>
 
     <Footer />
+
+    <!-- The only movement on the site: each photograph fades in slowly the
+         first time it comes into view. Nothing floats, drifts or parallaxes,
+         and anyone who has asked their system for reduced motion sees the
+         pictures simply present, with no transition at all. -->
+    <script is:inline>
+      (() => {
+        const shots = document.querySelectorAll(".botanical");
+        if (!shots.length) return;
+        const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (still || !("IntersectionObserver" in window)) {
+          shots.forEach((el) => el.classList.add("is-in"));
+          return;
+        }
+        const seen = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-in");
+              seen.unobserve(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px" }
+        );
+        shots.forEach((el) => seen.observe(el));
+      })();
+    </script>
   </body>
 </html>

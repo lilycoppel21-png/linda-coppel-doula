@@ -1,0 +1,60 @@
+---
+/*
+  LeafMarkDefs — the one piece of drawn artwork still on the site.
+  ---------------------------------------------------------------
+  A single leaf, used beside Linda's name in the header and footer and as the
+  bullet mark in lists. Defined once here and drawn elsewhere with
+  <use href="#leafMark">.
+
+  The larger drawn plantings that used to live alongside it were removed when
+  the magnolia photographs came in: a generated vine and a photographed leaf
+  read as two different languages on the same page.
+
+  Included once, in BaseLayout.astro.
+*/
+import { buildLeaf } from "../plants";
+
+const mark = buildLeaf({
+  length: 54,
+  widthLeft: 17,
+  widthRight: 13,
+  bend: 0.11,
+  droop: 0.03,
+  tipPower: 0.92,
+  veinPairs: 3,
+});
+---
+
+<svg
+  aria-hidden="true"
+  focusable="false"
+  width="0"
+  height="0"
+  style="position:absolute;width:0;height:0;overflow:hidden"
+>
+  <defs>
+    <linearGradient id="gLeafA" x1="0" y1="0" x2="0.92" y2="0.9">
+      <stop offset="0" stop-color="#5c9060"></stop>
+      <stop offset="1" stop-color="#2b5632"></stop>
+    </linearGradient>
+
+    <g id="leafMark">
+      <path
+        d="M3 41C6 37 9 34 12 31"
+        stroke="#2c5433"
+        stroke-width="3"
+        stroke-linecap="round"
+        fill="none"></path>
+      <g transform="translate(11 33) rotate(-38)">
+        <path d={mark.outline} fill="url(#gLeafA)"></path>
+        <path d={mark.shade} fill="#0b2011" opacity="0.13"></path>
+        <path
+          d={mark.midrib}
+          stroke="#1a3d22"
+          stroke-width="1"
+          fill="none"
+          opacity="0.42"></path>
+      </g>
+    </g>
+  </defs>
+</svg>

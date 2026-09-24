@@ -15,34 +15,32 @@
   covered come from src/config.ts.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Botanical from "../components/Botanical.astro";
-import LeafDivider from "../components/LeafDivider.astro";
 import { Image } from "astro:assets";
-import magnoliaOpen from "../images/magnolia-open.png";
-import magnoliaBud from "../images/magnolia-bud.png";
+import budHero from "../images/bud-hero.png";
+import leafSingle from "../images/leaf-single.png";
+import flowerOpen from "../images/flower-open.png";
 import { contact, areas, url } from "../config";
 ---
 
 <BaseLayout>
   <!-- ================= Opening =================
-       The magnolia comes in quietly from the right-hand edge. It is shown at
-       close to its own proportions rather than stretched to fill the space, so
-       nothing crops through the flower, and it is masked (.photo-from-right)
-       so the blurred foliage dissolves into the page instead of stopping at a
-       hard edge. The words keep the left half to themselves.
+       The closed bud, entering quietly from the right-hand edge with the words
+       keeping the left half to themselves. Its edges are already dissolved
+       into transparency in the image file, so there is no mask and no frame
+       here — only its position.
 
-       Below 1024px the picture moves underneath the words instead — see the
-       block after the text. -->
-  <section class="relative overflow-hidden lg:min-h-[30rem]">
+       Below 1024px the picture moves underneath the words; see the block after
+       the text. -->
+  <section class="relative overflow-hidden lg:min-h-[31rem]">
     <div
       class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2
-             w-[46%] max-w-[46rem] pointer-events-none photo-from-right"
+             w-[44%] max-w-[44rem] pointer-events-none botanical"
     >
       <Image
-        src={magnoliaOpen}
+        src={budHero}
         alt=""
-        widths={[480, 652]}
-        sizes="46vw"
+        widths={[480, 664]}
+        sizes="44vw"
         class="w-full h-auto"
       />
     </div>
@@ -85,16 +83,14 @@ import { contact, areas, url } from "../config";
     </div>
 
     <!-- Phones and tablets: the words come first and the picture follows,
-         running to both edges of the screen so it never sits behind text.
-         It is cropped towards the flower rather than shrunk. -->
-    <div class="lg:hidden mt-10 sm:mt-12 photo-from-top">
+         shown whole rather than cropped so its dissolved edges still read. -->
+    <div class="lg:hidden mt-8 sm:mt-10 botanical">
       <Image
-        src={magnoliaOpen}
+        src={budHero}
         alt=""
-        widths={[480, 652]}
+        widths={[480, 664]}
         sizes="100vw"
-        class="w-full h-[13rem] sm:h-[17rem] object-cover"
-        style="object-position: 72% 55%;"
+        class="w-full h-auto"
       />
     </div>
   </section>
@@ -102,12 +98,21 @@ import { contact, areas, url } from "../config";
   <!-- ================= A short word, centred =================
        Centred on a deeper green band, so it reads differently from the
        left-aligned opening above it. -->
-  <section class="relative overflow-hidden bg-sage">
-    <Botanical
-      variant="d"
-      swaySeconds={19}
-      class="hidden md:block absolute -bottom-16 -left-28 w-[26rem] opacity-90 pointer-events-none"
-    />
+  <section class="relative overflow-hidden bg-cream border-y border-rule">
+    <!-- A single leaf, small, low and off to one side: the quietest moment in
+         the sequence, between the closed bud above and the open flower below. -->
+    <div
+      class="hidden sm:block absolute left-0 bottom-10 w-[19%] max-w-[13rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={leafSingle}
+        alt=""
+        widths={[180, 275]}
+        sizes="17vw"
+        class="w-full h-auto"
+      />
+    </div>
 
     <div class="wrap py-16 sm:py-20 text-center relative">
       <div class="max-w-2xl mx-auto prose-block">
@@ -122,9 +127,7 @@ import { contact, areas, url } from "../config";
         </p>
       </div>
 
-      <LeafDivider class="mt-10" />
-
-      <p class="pull-line mt-10 mb-0">This is where I can help.</p>
+      <p class="pull-line mt-14 mb-0">This is where I can help.</p>
 
       <p class="mt-8 mb-0">
         <a href={url("/how-i-can-help")}>What my support can offer →</a>
@@ -133,25 +136,25 @@ import { contact, areas, url } from "../config";
   </section>
 
   <!-- ================= Closing invitation =================
-       The closed bud sits here, after the explanatory passage above and beside
-       the invitation to call — the quieter of the two photographs, given a lot
-       of room and kept well away from the words. -->
+       The open flower, at the end of the page and the end of the sequence —
+       the largest and most resolved of the photographs. It sits below the
+       words rather than beside them, in a deliberately tall, empty stretch of
+       page, and runs off the bottom-right corner. -->
   <section class="relative overflow-hidden mt-16 sm:mt-20 mb-4 text-center">
     <div
-      class="hidden lg:block absolute left-[1%] bottom-[8%] w-[26%] max-w-[22rem]
-             opacity-90 pointer-events-none photo-vignette"
-      style="--focus-x: 70%; --focus-y: 46%; --reach-x: 32%; --reach-y: 50%;"
+      class="hidden lg:block absolute right-0 bottom-0 w-[38%] max-w-[36rem]
+             pointer-events-none botanical"
     >
       <Image
-        src={magnoliaBud}
+        src={flowerOpen}
         alt=""
-        widths={[420, 664]}
-        sizes="36vw"
+        widths={[480, 652]}
+        sizes="40vw"
         class="w-full h-auto"
       />
     </div>
 
-    <div class="wrap relative py-12 pb-20">
+    <div class="wrap relative py-12 pb-20 lg:pb-[23rem]">
       <h2 class="page-title m-0">If you'd like to talk</h2>
 
       <p class="mt-5 mb-0 max-w-xl mx-auto">
@@ -171,16 +174,14 @@ import { contact, areas, url } from "../config";
       </p>
     </div>
 
-    <!-- Phones and tablets: beneath the words, and shallower than the hero so
-         the two pictures don't carry the same weight. -->
-    <div class="lg:hidden mt-4 mb-4 photo-from-top">
+    <!-- Phones and tablets: beneath the words, closing the page. -->
+    <div class="lg:hidden mt-6 mb-2 botanical">
       <Image
-        src={magnoliaBud}
+        src={flowerOpen}
         alt=""
-        widths={[480, 664]}
+        widths={[480, 652]}
         sizes="100vw"
-        class="w-full h-[11rem] object-cover"
-        style="object-position: 62% 45%;"
+        class="w-full h-auto"
       />
     </div>
   </section>

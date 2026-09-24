@@ -243,97 +243,29 @@
   /* ----------------------------------------------------------
      Botanical photography.
      ----------------------
-     Used sparingly — one photograph on the home page hero, one further down —
-     and never framed. Instead of a border or a card, each picture is masked so
-     its edges dissolve into the page colour and it reads as part of the page
-     rather than a rectangle dropped onto it.
+     The photographs carry no mask and no frame. Each one has its soft edges
+     dissolved into transparency in the image file itself, along an irregular
+     border, so it meets the page colour without a rectangle, a circle or a
+     feathered outline anywhere. Whichever side runs off the edge of the page
+     is left solid, so it reads as continuing past the screen.
 
-     Two gradients are combined: one fades the edge the picture comes in from,
-     the other softens the top and bottom. Safari needs the -webkit- spellings
-     and uses a different keyword for the same compositing step.
+     The only rule here is the arrival: a slow fade the first time a picture
+     comes into view. `.js` is set by a small script in the head, so with no
+     JavaScript the pictures are simply there from the start.
      ---------------------------------------------------------- */
-
-  /* Comes in from the right edge, dissolving before it reaches the words.
-     The opaque part is the right-hand 40%, which is where the flower sits. */
-  .photo-from-right {
-    --fade-edge: linear-gradient(
-      to left,
-      #000 0%,
-      #000 40%,
-      rgba(0, 0, 0, 0.55) 62%,
-      transparent 85%
-    );
-    --fade-ends: linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 30%,
-      #000 72%,
-      transparent 100%
-    );
-    -webkit-mask-image: var(--fade-edge), var(--fade-ends);
-    -webkit-mask-composite: source-in;
-    mask-image: var(--fade-edge), var(--fade-ends);
-    mask-composite: intersect;
+  .js .botanical {
+    opacity: 0;
+    transition: opacity 1400ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  /* The same, mirrored, for a picture entering from the left. */
-  .photo-from-left {
-    --fade-edge: linear-gradient(
-      to right,
-      #000 0%,
-      #000 40%,
-      rgba(0, 0, 0, 0.55) 62%,
-      transparent 85%
-    );
-    --fade-ends: linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 30%,
-      #000 72%,
-      transparent 100%
-    );
-    -webkit-mask-image: var(--fade-edge), var(--fade-ends);
-    -webkit-mask-composite: source-in;
-    mask-image: var(--fade-edge), var(--fade-ends);
-    mask-composite: intersect;
+  .js .botanical.is-in {
+    opacity: 1;
   }
 
-  /* For a picture that sits inside the page rather than running off an edge:
-     a soft oval around the subject, dissolving on every side, so there is no
-     rectangle anywhere. The focal point and how far the clear area reaches are
-     set on the picture itself. */
-  .photo-vignette {
-    --focus-x: 50%;
-    --focus-y: 50%;
-    --reach-x: 38%;
-    --reach-y: 55%;
-    --vignette: radial-gradient(
-      var(--reach-x) var(--reach-y) at var(--focus-x) var(--focus-y),
-      #000 0%,
-      #000 42%,
-      rgba(0, 0, 0, 0.45) 70%,
-      transparent 95%
-    );
-    -webkit-mask-image: var(--vignette);
-    mask-image: var(--vignette);
-  }
-
-  /* On a narrow screen the picture sits underneath the words and runs to both
-     side edges, so only the top and bottom need to dissolve. */
-  .photo-from-top {
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 20%,
-      #000 86%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 20%,
-      #000 86%,
-      transparent 100%
-    );
+  @media (prefers-reduced-motion: reduce) {
+    .js .botanical {
+      opacity: 1;
+      transition: none;
+    }
   }
 }

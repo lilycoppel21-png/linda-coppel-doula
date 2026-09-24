@@ -12,8 +12,9 @@
   Phone number and areas come from src/config.ts.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Botanical from "../components/Botanical.astro";
 import Leaf from "../components/Leaf.astro";
+import { Image } from "astro:assets";
+import flowerOpen from "../images/flower-open.png";
 import { contact, areas } from "../config";
 ---
 
@@ -22,14 +23,22 @@ import { contact, areas } from "../config";
   description="Call Linda Coppel, Certified End of Life Doula, on 07767 270884. Home based support across North and North-West London."
 >
   <!-- ================= Phone =================
-       The number sits on a cream card, with the vine coming in over the
-       top-right corner of the page behind it. -->
-  <section class="relative overflow-hidden">
-    <Botanical
-      variant="a"
-      swaySeconds={16}
-      class="hidden md:block absolute -top-6 -right-28 w-[26rem] lg:w-[34rem] opacity-90 pointer-events-none"
-    />
+       The number sits on a cream card. The open flower sits below and behind
+       it, running off the right-hand edge: this is the page someone reaches
+       when they have decided to call, so it carries the resolved image. -->
+  <section class="relative overflow-hidden pb-4 lg:pb-32">
+    <div
+      class="hidden lg:block absolute right-0 bottom-0 w-[34%] max-w-[38rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={flowerOpen}
+        alt=""
+        widths={[480, 652]}
+        sizes="34vw"
+        class="w-full h-auto"
+      />
+    </div>
 
     <div class="wrap relative pt-8 sm:pt-10">
     <div class="card relative overflow-hidden text-center py-14 sm:py-20">
@@ -77,12 +86,7 @@ import { contact, areas } from "../config";
   <!-- ================= Areas covered =================
        Three columns on wide screens, so fifteen places don't become a long
        thin list down one edge. -->
-  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-sage">
-    <Botanical
-      variant="d"
-      swaySeconds={19}
-      class="hidden md:block absolute -bottom-20 -left-24 w-[24rem] opacity-85 pointer-events-none"
-    />
+  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-cream border-y border-rule">
     <div class="wrap py-14 sm:py-16">
       <div class="grid lg:grid-cols-12 gap-8">
         <div class="lg:col-span-4">

@@ -9,9 +9,9 @@
   src/config.ts. The wording around it is below.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Botanical from "../components/Botanical.astro";
 import Leaf from "../components/Leaf.astro";
-import LeafDivider from "../components/LeafDivider.astro";
+import { Image } from "astro:assets";
+import leavesPetal from "../images/leaves-petal.png";
 import { contact, supportOffered } from "../config";
 ---
 
@@ -21,11 +21,22 @@ import { contact, supportOffered } from "../config";
 >
   <!-- ================= Page opening ================= -->
   <section class="relative overflow-hidden">
-    <Botanical
-      variant="a"
-      swaySeconds={17}
-      class="hidden md:block absolute -top-8 -right-28 w-[26rem] lg:w-[34rem] opacity-90 pointer-events-none"
-    />
+    <!-- Leaves, with the first edge of a petal showing behind them: a step
+         further open than the bud on the home page, and no more than that. It
+         runs off the right-hand edge of the screen, which is the side its own
+         edge is left solid on. -->
+    <div
+      class="hidden lg:block absolute right-0 top-2 w-[24%] max-w-[19rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={leavesPetal}
+        alt=""
+        widths={[295]}
+        sizes="24vw"
+        class="w-full h-auto"
+      />
+    </div>
 
     <div class="wrap relative pt-8 sm:pt-10">
     <div class="grid lg:grid-cols-12 gap-10 items-center">
@@ -43,8 +54,7 @@ import { contact, supportOffered } from "../config";
         </p>
       </div>
 
-      <div class="lg:col-span-4">
-      </div>
+      <div class="lg:col-span-4"></div>
     </div>
     </div>
   </section>
@@ -108,17 +118,9 @@ import { contact, supportOffered } from "../config";
   </section>
 
   <!-- ================= Closing invitation ================= -->
-  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-sage">
-    <Botanical
-      variant="d"
-      swaySeconds={20}
-      class="hidden md:block absolute -bottom-20 -left-24 w-[24rem] opacity-85 pointer-events-none"
-    />
-
+  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-cream border-y border-rule">
     <div class="wrap py-14 sm:py-16 text-center relative">
-      <LeafDivider />
-
-      <p class="pull-line mt-10 mb-0 max-w-2xl mx-auto">
+      <p class="pull-line mb-0 max-w-2xl mx-auto">
         If any of this sounds like what you or someone you love needs, I would
         be glad to talk it through with you.
       </p>

@@ -8,9 +8,9 @@
   around it is below.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Botanical from "../components/Botanical.astro";
 import Leaf from "../components/Leaf.astro";
-import LeafDivider from "../components/LeafDivider.astro";
+import { Image } from "astro:assets";
+import petalPart from "../images/petal-part.png";
 import { site, contact, background } from "../config";
 ---
 
@@ -20,12 +20,6 @@ import { site, contact, background } from "../config";
 >
   <!-- ================= Page opening ================= -->
   <section class="relative overflow-hidden">
-    <Botanical
-      variant="b"
-      swaySeconds={15}
-      class="hidden md:block absolute -top-10 -right-24 w-[26rem] lg:w-[36rem] opacity-90 pointer-events-none"
-    />
-
     <div class="wrap relative pt-8 sm:pt-10">
     <div class="grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-7">
@@ -48,12 +42,21 @@ import { site, contact, background } from "../config";
   <!-- ================= What matters to me =================
        Centred on a green band, so it reads as the personal heart of the page
        rather than more of the same column. -->
-  <section class="relative overflow-hidden mt-12 sm:mt-16 bg-sage">
-    <Botanical
-      variant="c"
-      swaySeconds={18}
-      class="hidden md:block absolute -bottom-16 -left-28 w-[26rem] opacity-85 pointer-events-none"
-    />
+  <section class="relative overflow-hidden mt-12 sm:mt-16 bg-cream border-y border-rule">
+    <!-- Petals, partly open — further along the sequence than the leaves on
+         "How I can help", and still short of the flower at the end. -->
+    <div
+      class="hidden md:block absolute left-0 bottom-0 w-[20%] max-w-[14rem]
+             pointer-events-none botanical"
+    >
+      <Image
+        src={petalPart}
+        alt=""
+        widths={[215]}
+        sizes="20vw"
+        class="w-full h-auto"
+      />
+    </div>
 
     <div class="wrap py-14 sm:py-16 text-center relative">
       <h2 class="section-title m-0">What matters to me</h2>
@@ -98,9 +101,7 @@ import { site, contact, background } from "../config";
 
   <!-- ================= Closing invitation ================= -->
   <section class="wrap mt-16 sm:mt-20 mb-20 sm:mb-24 text-center">
-    <LeafDivider />
-
-    <p class="pull-line mt-10 mb-0 max-w-2xl mx-auto">
+    <p class="pull-line mb-0 max-w-2xl mx-auto">
       If you would like to talk about whether my support might help you or
       someone close to you, please do get in touch.
     </p>
