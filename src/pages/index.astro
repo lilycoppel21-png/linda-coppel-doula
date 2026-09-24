@@ -17,10 +17,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import budHero from "../images/bud-hero.png";
-import leafGlossy from "../images/leaf-glossy.png";
-import sprigLeft from "../images/sprig-left.png";
-import fatsiaDetail from "../images/fatsia-detail.png";
-import flowerOpen from "../images/flower-open.png";
+import fatsiaCorner from "../images/fatsia-corner.png";
+import flowerCluster from "../images/flower-cluster.png";
 import { contact, areas, url } from "../config";
 ---
 
@@ -35,7 +33,7 @@ import { contact, areas, url } from "../config";
        the text. -->
   <section class="relative overflow-hidden lg:min-h-[31rem]">
     <div
-      class="hidden lg:block absolute right-[2%] top-1/2 -translate-y-1/2
+      class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2
              w-[34%] max-w-[31.5rem] pointer-events-none botanical"
     >
       <Image
@@ -47,26 +45,12 @@ import { contact, areas, url } from "../config";
       />
     </div>
 
-    <!-- A couple of glossy leaves low on the other side, mostly past the edge
-         of the screen. Small, and easy to miss — which is the point. -->
-    <div
-      class="hidden md:block absolute -left-[6%] bottom-2 w-[13%] max-w-[11rem]
-             pointer-events-none botanical"
-    >
-      <Image
-        src={leafGlossy}
-        alt=""
-        widths={[221]}
-        sizes="13vw"
-        class="w-full h-auto"
-      />
-    </div>
-
-    <div class="wrap relative pt-24 sm:pt-32 lg:pt-16 pb-12 sm:pb-16">
+    <div class="wrap relative pt-24 sm:pt-32 lg:pt-20 pb-16 sm:pb-24">
       <!-- Below 1024px the words have the full column. From 1024px up the
-           photograph takes the right-hand side, so the text is held to a
-           share of the column and never runs into it. -->
-      <div class="max-w-xl lg:max-w-[46%]">
+           photograph takes the right-hand side. The text runs to a little over
+           half the width — wide enough that the two halves read as one
+           composition rather than two, and still short of the picture. -->
+      <div class="max-w-xl lg:max-w-[54%]">
         <h1 class="hero-title m-0">
           Time to listen.<br />Time to be there.
         </h1>
@@ -116,38 +100,26 @@ import { contact, areas, url } from "../config";
        Centred on a deeper green band, so it reads differently from the
        left-aligned opening above it. -->
   <section class="relative overflow-hidden bg-cream border-y border-rule">
-    <!-- Fatsia coming in along the left-hand edge, against a wall the same
-         warmth as this band. Foliage is the middle of the sequence: past the
-         closed bud, not yet the open flower. -->
+    <!-- One fatsia leaf reaching in from the top-left corner on its own stem,
+         turned so it hangs diagonally down into the section. The stem runs off
+         the corner, so the plant reads as standing outside the page rather
+         than as a photograph set beside the words. The wall behind it is close
+         to the colour of this band, which is why it sits here and not on the
+         green. -->
     <div
-      class="hidden sm:block absolute left-0 bottom-0 w-[20%] max-w-[18.75rem]
-             pointer-events-none botanical"
+      class="hidden sm:block absolute -left-[3%] -top-[5%] w-[23%] max-w-[18rem]
+             origin-top-left rotate-[8deg] pointer-events-none botanical"
     >
       <Image
-        src={sprigLeft}
+        src={fatsiaCorner}
         alt=""
-        widths={[300]}
-        sizes="20vw"
+        widths={[240]}
+        sizes="30vw"
         class="w-full h-auto"
       />
     </div>
 
-    <!-- And the tip of a fatsia leaf dropping in over the top-right corner,
-         cut off by the edge of the band. -->
-    <div
-      class="hidden lg:block absolute right-[6%] -top-[3%] w-[12%] max-w-[10rem]
-             pointer-events-none botanical"
-    >
-      <Image
-        src={fatsiaDetail}
-        alt=""
-        widths={[202]}
-        sizes="12vw"
-        class="w-full h-auto"
-      />
-    </div>
-
-    <div class="wrap py-16 sm:py-20 text-center relative">
+    <div class="wrap py-20 sm:py-28 text-center relative">
       <div class="max-w-2xl mx-auto prose-block">
         <p>
           When someone is diagnosed with a life limiting illness, life can
@@ -173,21 +145,21 @@ import { contact, areas, url } from "../config";
        the largest and most resolved of the photographs. It sits below the
        words rather than beside them, in a deliberately tall, empty stretch of
        page, and runs off the bottom-right corner. -->
-  <section class="relative overflow-hidden mt-16 sm:mt-20 mb-4 text-center">
+  <section class="relative overflow-hidden mt-20 sm:mt-28 mb-4 text-center">
     <div
-      class="hidden lg:block absolute right-0 bottom-0 w-[36%] max-w-[34rem]
+      class="hidden lg:block absolute -right-[5%] bottom-0 w-[27%] max-w-[25rem]
              pointer-events-none botanical"
     >
       <Image
-        src={flowerOpen}
+        src={flowerCluster}
         alt=""
-        widths={[420, 550]}
-        sizes="36vw"
+        widths={[400]}
+        sizes="27vw"
         class="w-full h-auto"
       />
     </div>
 
-    <div class="wrap relative py-12 pb-20 lg:pb-[21rem]">
+    <div class="wrap relative pt-16 sm:pt-20 pb-20 lg:pb-[13rem]">
       <h2 class="page-title m-0">If you'd like to talk</h2>
 
       <p class="mt-5 mb-0 max-w-xl mx-auto">
@@ -210,9 +182,9 @@ import { contact, areas, url } from "../config";
     <!-- Phones and tablets: beneath the words, closing the page. -->
     <div class="lg:hidden mt-6 mb-2 botanical">
       <Image
-        src={flowerOpen}
+        src={flowerCluster}
         alt=""
-        widths={[420, 550]}
+        widths={[400]}
         sizes="100vw"
         class="w-full h-auto"
       />

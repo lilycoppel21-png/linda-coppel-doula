@@ -10,8 +10,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
-import fatsiaLeafEdge from "../images/fatsia-leaf-edge.png";
 import leafGlossy from "../images/leaf-glossy.png";
+import leafMagnolia from "../images/leaf-magnolia.png";
 import petalEdge from "../images/petal-edge.png";
 import { site, contact, background } from "../config";
 ---
@@ -59,24 +59,22 @@ import { site, contact, background } from "../config";
   <!-- ================= What matters to me =================
        Centred on a green band, so it reads as the personal heart of the page
        rather than more of the same column. -->
-  <section class="relative overflow-hidden mt-12 sm:mt-16 bg-cream border-y border-rule">
-    <!-- The single fatsia leaf, used once on the whole site. It is much the
-         strongest piece of foliage there is, so it gets one placement and no
-         repeats: in from the left-hand edge, with most of it past the screen. -->
+  <section class="relative overflow-hidden mt-16 sm:mt-24 bg-cream border-y border-rule">
+    <!-- Magnolia leaves in from the left, low and mostly past the edge. -->
     <div
-      class="hidden md:block absolute -left-[3%] bottom-0 w-[24%] max-w-[22rem]
+      class="hidden md:block absolute -left-[4%] bottom-6 w-[17%] max-w-[14rem]
              pointer-events-none botanical"
     >
       <Image
-        src={fatsiaLeafEdge}
+        src={leafMagnolia}
         alt=""
-        widths={[352]}
-        sizes="24vw"
+        widths={[221]}
+        sizes="17vw"
         class="w-full h-auto"
       />
     </div>
 
-    <div class="wrap py-14 sm:py-16 text-center relative">
+    <div class="wrap py-18 sm:py-24 text-center relative">
       <h2 class="section-title m-0">What matters to me</h2>
 
       <div class="max-w-2xl mx-auto mt-5 prose-block">

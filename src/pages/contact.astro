@@ -15,7 +15,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
 import sprigTop from "../images/sprig-top.png";
-import flowerOpen from "../images/flower-open.png";
+import flowerCluster from "../images/flower-cluster.png";
 import { contact, areas } from "../config";
 ---
 
@@ -45,14 +45,14 @@ import { contact, areas } from "../config";
     <!-- And the open flower below the card: the end of the sequence, on the
          page someone reaches once they have decided to call. -->
     <div
-      class="hidden lg:block absolute right-0 bottom-0 w-[34%] max-w-[34rem]
+      class="hidden lg:block absolute -right-[4%] bottom-0 w-[27%] max-w-[25rem]
              pointer-events-none botanical"
     >
       <Image
-        src={flowerOpen}
+        src={flowerCluster}
         alt=""
-        widths={[420, 550]}
-        sizes="34vw"
+        widths={[400]}
+        sizes="27vw"
         class="w-full h-auto"
       />
     </div>
@@ -103,8 +103,8 @@ import { contact, areas } from "../config";
   <!-- ================= Areas covered =================
        Three columns on wide screens, so fifteen places don't become a long
        thin list down one edge. -->
-  <section class="relative overflow-hidden mt-16 sm:mt-20 bg-cream border-y border-rule">
-    <div class="wrap py-14 sm:py-16">
+  <section class="relative overflow-hidden mt-20 sm:mt-28 bg-cream border-y border-rule">
+    <div class="wrap py-18 sm:py-24">
       <div class="grid lg:grid-cols-12 gap-8">
         <div class="lg:col-span-4">
           <h2 class="section-title m-0">Where I work</h2>
