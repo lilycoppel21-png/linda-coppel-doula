@@ -18,8 +18,9 @@
   rule between them, so each reads as its own step without looking like a
   stack of cards.
 
-  Photographs are kept to two: the open magnolia in the opening, and a fatsia
-  leaf by "What Matters to Me".
+  Photographs are kept to three: the open magnolia in the opening, a fatsia
+  leaf by "What Matters to Me", and the magnolia bud by the professional
+  background.
 
   To change the wording, edit the text below. The name, phone number, email,
   and areas come from src/config.ts.
@@ -28,12 +29,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
 import { Image } from "astro:assets";
 import magnoliaHero from "../images/magnolia-hero.png";
-import fatsiaLeafFlip from "../images/fatsia-leaf-flip.png";
+import fatsiaLeaf from "../images/fatsia-leaf.png";
+import budHero from "../images/bud-hero.png";
 import { site, contact, areas } from "../config";
 ---
 
 <BaseLayout>
-  <!-- ================= 1. Opening ================= The magnolia comes in from the
+  <!-- ================= 1. Opening =================
+       Fills the first screen on wide displays; the rest is a scroll away. The magnolia comes in from the
        right-hand edge at the full height of the section. Its left, top and
        bottom edges are dissolved into transparency in the image file itself,
        so it meets the page with no rectangle, shadow or frame, and the flower
@@ -41,7 +44,7 @@ import { site, contact, areas } from "../config";
 
        Below 1024px the words come first and the photograph follows. -->
   <section
-    class="relative overflow-hidden lg:flex lg:items-center"
+    class="relative overflow-hidden lg:min-h-[calc(100svh-5.85rem)] lg:flex lg:items-center"
   >
     <!-- Sized by the height of the section and never cropped, so the soft
          top and bottom edges in the file always show. -->
@@ -56,7 +59,7 @@ import { site, contact, areas } from "../config";
     />
 
     <div class="wrap relative pt-10 sm:pt-12 pb-10 lg:py-12">
-      <div class="max-w-[38rem] lg:max-w-[54%]">
+      <div class="max-w-[38rem] lg:max-w-[54%] lg:pl-10">
         <h1 class="brand-title m-0 flex items-center gap-[0.22em]">
           <Leaf class="w-[0.78em] -mt-[0.08em]" />
           {site.practice}
@@ -122,24 +125,24 @@ import { site, contact, areas } from "../config";
   </section>
 
   <!-- ================= 2. What Matters to Me (#about) =================
-       The fatsia leaf reaches in from the bottom-right corner, beyond the end
-       of the lines of text and well clear of the magnolia above. -->
+       The fatsia leaf reaches in from the top-left corner, so the words sit
+       a little to the right of it on wide screens. -->
   <section id="about" class="section relative overflow-hidden border-t border-rule">
     <div
-      class="hidden lg:block absolute right-[-3%] bottom-0 w-[20%] max-w-[29.375rem]
+      class="hidden md:block absolute left-[-3%] top-[-4%] w-[19%] max-w-[29.375rem]
              pointer-events-none botanical feather"
     >
       <Image
-        src={fatsiaLeafFlip}
+        src={fatsiaLeaf}
         alt=""
         widths={[470]}
-        sizes="20vw"
+        sizes="19vw"
         class="w-full h-auto"
       />
     </div>
 
     <div class="wrap relative">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl md:ml-[19%]">
         <h2 class="section-title m-0">What Matters to Me</h2>
 
         <div class="mt-5 prose-block">
@@ -216,9 +219,24 @@ import { site, contact, areas } from "../config";
     </div>
   </section>
 
-  <!-- ================= 4. Experience and Professional Background ======== -->
-  <section class="section">
-    <div class="wrap">
+  <!-- ================= 4. Experience and Professional Background ========
+       The magnolia bud comes in from the right-hand edge, beyond the end of
+       the lines of text. -->
+  <section class="section relative overflow-hidden">
+    <div
+      class="hidden lg:block absolute right-[-2%] top-1/2 -translate-y-1/2 w-[22%] max-w-[28.4375rem]
+             pointer-events-none botanical feather"
+    >
+      <Image
+        src={budHero}
+        alt=""
+        widths={[455]}
+        sizes="22vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <div class="wrap relative">
       <div class="max-w-3xl">
         <h2 class="section-title m-0">Experience and Professional Background</h2>
 
@@ -283,7 +301,7 @@ import { site, contact, areas } from "../config";
             {areas.region}, with a particular focus on:
           </p>
 
-          <ul class="mt-4 grid gap-x-6 gap-y-2 grid-cols-2 sm:grid-cols-3 list-none m-0 p-0 text-[1.0625rem] sm:text-xl">
+          <ul class="mt-4 grid gap-x-6 gap-y-2 grid-cols-2 sm:grid-cols-3 list-none m-0 p-0 text-[1.0625rem] sm:text-[1.1875rem]">
             {
               areas.neighbourhoods.map((place) => (
                 <li class="flex items-center gap-3">
