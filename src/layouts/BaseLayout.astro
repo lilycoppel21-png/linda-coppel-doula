@@ -2,8 +2,7 @@
 /*
   BaseLayout — the shell every page sits inside.
   ---------------------------------------------
-  It provides the <head> (fonts, page title, meta tags), the header and the
-  footer. Each page sets its own content width, so this doesn't impose one.
+  It provides the <head> (fonts, page title, meta tags) and the header. Each page sets its own content width, so this doesn't impose one.
 
   Pages use it like this:
 
@@ -16,7 +15,6 @@
 */
 import { site, url } from "../config";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import LeafMarkDefs from "../components/LeafMarkDefs.astro";
 import "../styles/global.css";
 
@@ -99,8 +97,6 @@ const isPreview = import.meta.env.PUBLIC_PREVIEW === "true";
     <main id="main" class="flex-1 w-full">
       <slot />
     </main>
-
-    <Footer />
 
     <!-- The only movement on the site: each photograph fades in slowly the
          first time it comes into view. Nothing floats, drifts or parallaxes,

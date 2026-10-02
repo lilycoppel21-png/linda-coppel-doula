@@ -99,6 +99,21 @@ import { site, contact, areas } from "../config";
               </li>
             )
           }
+          {
+            contact.website && (
+              <li>
+                <a href={`https://${contact.website}`} class="contact-line">
+                  <span class="contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" class="w-[1.1rem] h-[1.1rem]">
+                      <circle cx="10" cy="10" r="7.25"></circle>
+                      <path d="M2.75 10h14.5M10 2.75c2 2 3 4.4 3 7.25s-1 5.25-3 7.25c-2-2-3-4.4-3-7.25s1-5.25 3-7.25Z"></path>
+                    </svg>
+                  </span>
+                  <span class="sr-only">Website: </span>{contact.website}
+                </a>
+              </li>
+            )
+          }
           <li class="contact-line">
             <span class="contact-icon" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="currentColor" class="w-[1.1rem] h-[1.1rem]">
@@ -287,6 +302,14 @@ import { site, contact, areas } from "../config";
             contact.email && (
               <p class="mt-1 mb-0 text-xl">
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </p>
+            )
+          }
+
+          {
+            contact.website && (
+              <p class="mt-1 mb-0 text-xl">
+                <a href={`https://${contact.website}`}>{contact.website}</a>
               </p>
             )
           }

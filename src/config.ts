@@ -25,8 +25,6 @@ export const site = {
   description:
     "Life Endings: Linda Coppel is a Certified End of Life Doula offering compassionate, non-medical support at home to people approaching the end of life and to those close to them, across North and North-West London.",
 
-  // Professional membership, shown in the footer.
-  membership: "Member of End of Life Doula UK",
 
   // Navigation. The whole site is one page, so each item jumps to a section
   // of it; the `href` is that section's id. The name in the top left goes back
@@ -50,6 +48,8 @@ export const contact = {
   phoneDisplay: "07767 270884",
   phoneTel: "+447767270884",
   email: "ldcoppel@gmail.com",
+  // The site's own address, shown under the email. Leave empty to hide.
+  website: "lifeendings.co.uk",
 };
 
 /*
