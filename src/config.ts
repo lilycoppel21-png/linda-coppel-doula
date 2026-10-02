@@ -9,16 +9,22 @@
 */
 
 export const site = {
-  // Name as it appears in the header, the browser tab, and the footer.
-  name: "Linda Coppel",
+  // The name of the service, as it appears in the header, the browser tab, and
+  // the footer.
+  name: "Life Endings",
 
-  // The line that sits under the name in the header.
+  // The quiet line that sits under the name in the header and the footer.
+  tagline: "Time, space, and support for life's final journey.",
+
+  // Linda herself, and her role. Used in the opening of the home page, the
+  // About page, the footer, and the browser tab on the home page.
+  person: "Linda Coppel",
   role: "End of Life Doula",
 
   // Used as the site's meta description — the sentence search engines show
   // underneath the link. Keep it to one clear sentence.
   description:
-    "Linda Coppel is a Certified End of Life Doula offering compassionate, non-medical support at home to people approaching the end of life and to those close to them, across North and North-West London.",
+    "Life Endings: Linda Coppel is a Certified End of Life Doula offering compassionate, non-medical support at home to people approaching the end of life and to those close to them, across North and North-West London.",
 
   // Professional membership, shown in the footer and on the About page.
   membership: "Member of End of Life Doula UK",
@@ -49,7 +55,7 @@ export const contact = {
 /*
   What the support can offer.
   ---------------------------
-  Shown as a list on the "How I can help" page. Add, remove or reword freely.
+  Shown as a list on the home page and the "How I can help" page. Add, remove or reword freely.
 */
 export const supportOffered = [
   "Being a regular and reassuring presence",
@@ -64,7 +70,7 @@ export const supportOffered = [
 /*
   Professional background.
   ------------------------
-  Shown as a list on the About page. `detail` is optional — leave it out and
+  Shown as one list on the home page and the About page. `detail` is optional — leave it out and
   only the main line shows.
 */
 export const background = [

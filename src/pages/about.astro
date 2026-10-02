@@ -8,10 +8,10 @@
   around it is below.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Leaf from "../components/Leaf.astro";
+import Background from "../components/Background.astro";
 import { Image } from "astro:assets";
 import fatsiaLeaf from "../images/fatsia-leaf.png";
-import { site, contact, background } from "../config";
+import { site, contact } from "../config";
 ---
 
 <BaseLayout
@@ -40,7 +40,7 @@ import { site, contact, background } from "../config";
       <div class="lg:col-span-7">
         <p class="label m-0">About me</p>
 
-        <h1 class="page-title mt-3 mb-0">{site.name}</h1>
+        <h1 class="page-title mt-3 mb-0">{site.person}</h1>
 
         <p class="lead mt-6 mb-0 max-w-xl">
           I am a Certified End of Life Doula. I offer a gentle, calming
@@ -79,25 +79,15 @@ import { site, contact, background } from "../config";
   </section>
 
   <!-- ================= Professional background =================
-       As cards across the page rather than a stacked list. -->
+       One list, kept to a readable width, rather than separate cards. -->
   <section class="wrap mt-16">
-    <h2 class="section-title m-0">Experience and professional background</h2>
+    <div class="max-w-2xl">
+      <h2 class="section-title m-0">Experience and professional background</h2>
 
-    <ul class="mt-8 grid gap-6 md:grid-cols-3 list-none m-0 p-0">
-      {
-        background.map((item) => (
-          <li class="card">
-            <Leaf class="w-9" />
-            <p class="font-display text-xl text-forest mt-4 mb-0">
-              {item.title}
-            </p>
-            {item.detail && <p class="mt-2 mb-0 text-muted">{item.detail}</p>}
-          </li>
-        ))
-      }
-    </ul>
-
-    <p class="mt-8 mb-0 text-muted">{site.membership}</p>
+      <div class="mt-6">
+        <Background />
+      </div>
+    </div>
   </section>
 
   <!-- ================= Closing invitation ================= -->

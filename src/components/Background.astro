@@ -1,0 +1,29 @@
+---
+/*
+  Background — the professional qualifications, as one list.
+  ----------------------------------------------------------
+  Used on the home page and the About page. Each qualification is a line of
+  its own, separated by a hairline, so the whole thing reads as one block
+  rather than as separate boxes. The membership closes the list.
+
+  The entries come from `background` in src/config.ts.
+*/
+import Leaf from "./Leaf.astro";
+import { site, background } from "../config";
+---
+
+<ul class="list-none m-0 p-0 border-t border-rule">
+  {
+    background.map((item) => (
+      <li class="flex gap-4 py-5 border-b border-rule">
+        <Leaf class="w-5 mt-2 self-start" />
+        <div>
+          <p class="font-display text-xl text-forest m-0">{item.title}</p>
+          {item.detail && <p class="mt-1 mb-0 text-muted">{item.detail}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<p class="mt-6 mb-0 text-muted">{site.membership}</p>

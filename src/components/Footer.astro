@@ -16,8 +16,9 @@ const year = new Date().getFullYear();
         <Leaf class="w-7 mt-1" />
         <div>
           <p class="font-display text-lg text-forest m-0">{site.name}</p>
-          <p class="label mt-0.5">{site.role}</p>
-          <p class="text-base text-muted mt-3 mb-0">{site.membership}</p>
+          <p class="tagline mt-0.5 mb-0">{site.tagline}</p>
+          <p class="text-base mt-3 mb-0">{site.person}, Certified {site.role}</p>
+          <p class="text-base text-muted mt-1 mb-0">{site.membership}</p>
         </div>
       </div>
 
@@ -47,9 +48,9 @@ const year = new Date().getFullYear();
     </div>
 
     <p class="text-sm text-muted mt-12 pt-6 border-t border-rule mb-0">
-      © {year} {site.name}. This site offers general information only and is not
-      medical advice. I work alongside your GP, hospice and palliative care team,
-      and never in place of them.
+      © {year} {site.person}. This site offers general information only and is
+      not medical advice. My support complements the care of your GP, hospice
+      and palliative care team, and does not replace it.
     </p>
   </div>
 </footer>
