@@ -3,8 +3,7 @@
   The site — one page.
   --------------------
   Someone arriving here may be worried, tired, or reading on a phone at a
-  difficult moment. The opening fills the first screen and tells them, at a
-  glance: Life Endings, Linda Coppel, Certified End-of-Life Doula, where she
+  difficult moment. The opening tells them, at a glance: Life Endings, Linda Coppel, Certified End-of-Life Doula, where she
   works and how to reach her. Everything else is below, to scroll through in
   this order:
 
@@ -23,20 +22,18 @@
   leaf by "What Matters to Me".
 
   To change the wording, edit the text below. The name, phone number, email,
-  areas and qualifications come from src/config.ts.
+  and areas come from src/config.ts.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
-import Background from "../components/Background.astro";
 import { Image } from "astro:assets";
 import magnoliaHero from "../images/magnolia-hero.png";
-import fatsiaLeaf from "../images/fatsia-leaf.png";
+import fatsiaLeafFlip from "../images/fatsia-leaf-flip.png";
 import { site, contact, areas } from "../config";
 ---
 
 <BaseLayout>
-  <!-- ================= 1. Opening =================
-       Fills the first screen on wide displays. The magnolia comes in from the
+  <!-- ================= 1. Opening ================= The magnolia comes in from the
        right-hand edge at the full height of the section. Its left, top and
        bottom edges are dissolved into transparency in the image file itself,
        so it meets the page with no rectangle, shadow or frame, and the flower
@@ -44,7 +41,7 @@ import { site, contact, areas } from "../config";
 
        Below 1024px the words come first and the photograph follows. -->
   <section
-    class="relative overflow-hidden lg:min-h-[calc(100svh-5.85rem)] lg:flex lg:items-center"
+    class="relative overflow-hidden lg:flex lg:items-center"
   >
     <!-- Sized by the height of the section and never cropped, so the soft
          top and bottom edges in the file always show. -->
@@ -58,8 +55,8 @@ import { site, contact, areas } from "../config";
              object-contain object-right pointer-events-none botanical"
     />
 
-    <div class="wrap relative pt-14 sm:pt-20 pb-12 lg:py-16">
-      <div class="lg:ml-[5%] max-w-[36rem] lg:max-w-[50%]">
+    <div class="wrap relative pt-10 sm:pt-12 pb-10 lg:py-12">
+      <div class="max-w-[38rem] lg:max-w-[54%]">
         <h1 class="brand-title m-0 flex items-center gap-[0.22em]">
           <Leaf class="w-[0.78em] -mt-[0.08em]" />
           {site.practice}
@@ -67,13 +64,13 @@ import { site, contact, areas } from "../config";
 
         <p class="hero-tagline mt-4 mb-0">{site.tagline}</p>
 
-        <hr class="border-0 border-t border-rule my-9 sm:my-11" />
+        <hr class="border-0 border-t border-rule my-7 sm:my-8" />
 
         <p class="hero-name m-0">{site.name}</p>
         <p class="hero-role mt-3 mb-0">Certified End-of-Life Doula</p>
 
         <!-- Contact. Each line is its own large tap target on a phone. -->
-        <ul class="mt-10 sm:mt-12 list-none m-0 p-0 space-y-3">
+        <ul class="mt-8 list-none m-0 p-0 space-y-2">
           <li>
             <a href={`tel:${contact.phoneTel}`} class="contact-line">
               <span class="contact-icon" aria-hidden="true">
@@ -125,37 +122,42 @@ import { site, contact, areas } from "../config";
   </section>
 
   <!-- ================= 2. What Matters to Me (#about) =================
-       The fatsia leaf reaches in from the top-left corner, so the words sit
-       to the right of it on wide screens. -->
+       The fatsia leaf reaches in from the bottom-right corner, beyond the end
+       of the lines of text and well clear of the magnolia above. -->
   <section id="about" class="section relative overflow-hidden border-t border-rule">
     <div
-      class="hidden md:block absolute left-[-3%] top-[-6%] w-[22%] max-w-[29.375rem]
+      class="hidden lg:block absolute right-[-3%] bottom-0 w-[20%] max-w-[29.375rem]
              pointer-events-none botanical feather"
     >
       <Image
-        src={fatsiaLeaf}
+        src={fatsiaLeafFlip}
         alt=""
         widths={[470]}
-        sizes="22vw"
+        sizes="20vw"
         class="w-full h-auto"
       />
     </div>
 
     <div class="wrap relative">
-      <div class="max-w-2xl md:ml-[28%]">
+      <div class="max-w-3xl">
         <h2 class="section-title m-0">What Matters to Me</h2>
 
-        <div class="mt-6 prose-block">
+        <div class="mt-5 prose-block">
+          <p>
+            When someone is diagnosed with a life limiting illness, life can
+            suddenly feel very uncertain. There may be medical decisions to
+            make, practical things to sort out, and difficult conversations to
+            begin.
+          </p>
           <p>
             My aim is to help people feel supported to live their life as fully
             as possible in the time that remains, and to support those close to
             them through what can be an incredibly challenging time.
           </p>
           <p>
-            When someone is diagnosed with a life limiting illness, life can
-            suddenly feel very uncertain. There may be medical decisions to
-            make, practical things to sort out, and difficult conversations to
-            begin.
+            Time to talk, time to express feelings, time to sit quietly and
+            simply be with the person. In a world where everyone is under
+            pressure, unhurried time is often what matters the most.
           </p>
         </div>
       </div>
@@ -168,11 +170,11 @@ import { site, contact, areas } from "../config";
        on the right. -->
   <section id="how-i-can-help" class="section bg-cream border-y border-rule">
     <div class="wrap">
-      <div class="lg:mx-[5%]">
+      <div>
         <h2 class="section-title m-0">How I Can Help</h2>
 
-        <div class="mt-6 grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-7 prose-block">
+        <div class="mt-5 grid gap-8 lg:grid-cols-2 lg:gap-14">
+          <div class="prose-block">
             <p>
               Every person has their own way of experiencing illness, dying and
               death. My role is to listen carefully, and to understand what is
@@ -188,12 +190,10 @@ import { site, contact, areas } from "../config";
             </p>
           </div>
 
-          <div class="lg:col-span-5 space-y-8">
+          <div class="space-y-7">
             <div>
-              <h3 class="font-display text-xl text-forest m-0">
-                For families and carers
-              </h3>
-              <p class="mt-2 mb-0">
+              <h3 class="subheading m-0">For Families and Carers</h3>
+              <p class="mt-1.5 mb-0">
                 My support reaches the people around the person, too. I can
                 become a familiar presence to be relied on, which can be
                 invaluable for working family members, for those living some
@@ -203,10 +203,8 @@ import { site, contact, areas } from "../config";
             </div>
 
             <div>
-              <h3 class="font-display text-xl text-forest m-0">
-                Alongside your clinical care
-              </h3>
-              <p class="mt-2 mb-0">
+              <h3 class="subheading m-0">Alongside Your Clinical Care</h3>
+              <p class="mt-1.5 mb-0">
                 I work alongside existing GP, hospice, palliative care, nursing
                 and social services. My support complements professional
                 clinical care and does not in any way replace it.
@@ -218,15 +216,22 @@ import { site, contact, areas } from "../config";
     </div>
   </section>
 
-  <!-- ================= 4. Experience and Professional Background ========
-       The entries come from `background` in src/config.ts. -->
+  <!-- ================= 4. Experience and Professional Background ======== -->
   <section class="section">
     <div class="wrap">
-      <div class="lg:mx-[5%]">
+      <div class="max-w-3xl">
         <h2 class="section-title m-0">Experience and Professional Background</h2>
 
-        <div class="mt-8">
-          <Background />
+        <div class="mt-5 prose-block">
+          <p>
+            I am a Certified End of Life Doula, trained at Crossfields
+            Institute, and a member of End of Life Doula UK.
+          </p>
+          <p>
+            I have worked as a therapist for over 30 years, with both
+            individuals and communities, and as a bereavement counsellor for
+            16 years.
+          </p>
         </div>
       </div>
     </div>
@@ -237,7 +242,7 @@ import { site, contact, areas } from "../config";
        the right, so the section stays short. -->
   <section id="contact" class="section bg-cream border-t border-rule">
     <div class="wrap">
-      <div class="lg:mx-[5%] grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
         <div class="lg:col-span-5">
           <h2 class="section-title m-0">Let's Have a Conversation</h2>
 
@@ -260,29 +265,36 @@ import { site, contact, areas } from "../config";
 
           {
             contact.email && (
-              <p class="mt-1 mb-0 text-lg">
+              <p class="mt-1 mb-0 text-xl">
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </p>
             )
           }
 
-          <p class="text-muted text-base mt-4 mb-0">
+          <p class="text-muted mt-4 mb-0">
             If I can't answer, please do leave a message and I will call you
             back.
           </p>
         </div>
 
-        <div class="lg:col-span-7 lg:pt-1">
-          <h3 class="font-display text-xl text-forest m-0">Where I work</h3>
+        <div class="lg:col-span-7">
+          <h3 class="subheading m-0">Where I Work</h3>
           <p class="mt-2 mb-0">
             {areas.region}, with a particular focus on:
           </p>
 
-          <p class="mt-3 mb-0 text-forest">
-            {areas.neighbourhoods.join(" · ")}
-          </p>
+          <ul class="mt-4 grid gap-x-6 gap-y-2 grid-cols-2 sm:grid-cols-3 list-none m-0 p-0 text-[1.0625rem] sm:text-xl">
+            {
+              areas.neighbourhoods.map((place) => (
+                <li class="flex items-center gap-3">
+                  <Leaf class="w-4" />
+                  <span>{place}</span>
+                </li>
+              ))
+            }
+          </ul>
 
-          <p class="mt-4 mb-0 text-muted text-base">
+          <p class="mt-5 mb-0 text-muted">
             If you are just outside these areas, please still do call. It may
             well be possible.
           </p>

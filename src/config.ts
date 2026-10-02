@@ -25,7 +25,7 @@ export const site = {
   description:
     "Life Endings: Linda Coppel is a Certified End of Life Doula offering compassionate, non-medical support at home to people approaching the end of life and to those close to them, across North and North-West London.",
 
-  // Professional membership, shown in the footer and on the About page.
+  // Professional membership, shown in the footer.
   membership: "Member of End of Life Doula UK",
 
   // Navigation. The whole site is one page, so each item jumps to a section
@@ -51,30 +51,6 @@ export const contact = {
   phoneTel: "+447767270884",
   email: "ldcoppel@gmail.com",
 };
-
-/*
-  Professional background.
-  ------------------------
-  Shown side by side in the "Experience and Professional Background" section.
-  `figure` is set large, so the length of experience reads at a glance;
-  `title` follows it, and `detail` (optional) sits underneath in smaller type.
-*/
-export const background = [
-  {
-    figure: "30+",
-    title: "years as a therapist",
-    detail: "Working with both individuals and communities.",
-  },
-  {
-    figure: "16",
-    title: "years as a bereavement counsellor",
-  },
-  {
-    figure: "Certified",
-    title: "End of Life Doula",
-    detail: "Crossfields Institute",
-  },
-];
 
 /*
   Areas covered.

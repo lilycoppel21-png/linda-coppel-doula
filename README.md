@@ -30,7 +30,6 @@ once there and every page updates.
 | Name, role, Life Endings and its tagline, site description | `site` |
 | Phone number and email | `contact` |
 | Menu items | `site.nav` |
-| Qualifications and experience | `background` |
 | Areas covered | `areas` |
 
 **The wording lives in `src/pages/index.astro`.** Each section is commented so
@@ -166,7 +165,6 @@ src/
   components/
     Header.astro
     Footer.astro
-    Background.astro     ← the qualifications list
     Leaf.astro           ← one small leaf (bullets, the Life Endings mark)
   images/                ← the botanical photographs
   pages/

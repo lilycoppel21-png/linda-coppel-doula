@@ -10,14 +10,14 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="w-full bg-cream border-t border-rule">
-  <div class="wrap py-14">
+  <div class="wrap py-10">
     <div class="flex flex-col sm:flex-row sm:justify-between gap-10">
       <div class="flex items-start gap-3">
         <Leaf class="w-7 mt-1" />
         <div>
           <p class="font-display text-lg text-forest m-0">{site.name}</p>
           <p class="label mt-0.5">{site.role}</p>
-          <p class="text-base text-muted mt-3 mb-0">{site.membership}</p>
+          <p class="text-muted mt-3 mb-0">{site.membership}</p>
         </div>
       </div>
 
@@ -40,13 +40,13 @@ const year = new Date().getFullYear();
             </p>
           )
         }
-        <p class="text-base text-muted mt-3 mb-0 sm:max-w-xs sm:ml-auto">
+        <p class="text-muted mt-3 mb-0 sm:max-w-xs sm:ml-auto">
           {areas.region}
         </p>
       </div>
     </div>
 
-    <p class="text-sm text-muted mt-12 pt-6 border-t border-rule mb-0">
+    <p class="text-base text-muted mt-8 pt-6 border-t border-rule mb-0">
       © {year} {site.name}. This site offers general information only and is
       not medical advice. My support complements the care of your GP, hospice
       and palliative care team, and does not replace it.
