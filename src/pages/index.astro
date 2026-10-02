@@ -7,27 +7,26 @@
   she is an end of life doula, and what kind of support that means — before
   they are shown any list of services.
 
-  The page runs in this order:
+  It is a landing page, kept short. It runs in this order:
     1. Opening — the practice, Life Endings, and its tagline, then "I am a
        certified end-of-life doula" and the presence she offers.
-    2. What matters to me — the personal heart of it, on a centred band.
-    3. Time, and a familiar presence — why it matters, for the person and
-       for the people around them.
-    4. How I can help — the practical and emotional support, as a list.
-    5. Experience and professional background — the qualifications.
-    6. Let's have a conversation — the invitation to call.
+    2. What matters to me — the personal heart of it, centred.
+    3. What I offer — time, and a familiar presence, with a link on to
+       "How I can help".
+    4. Let's have a conversation — the invitation to call.
 
-  To change the wording, edit the text below. The phone number, the areas
-  covered, the list of support and the qualifications come from src/config.ts.
+  The list of support and the professional background belong on their own
+  pages ("How I can help" and "About me"), not here.
+
+  To change the wording, edit the text below. The phone number and the areas
+  covered come from src/config.ts.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Leaf from "../components/Leaf.astro";
-import Background from "../components/Background.astro";
 import { Image } from "astro:assets";
 import budHero from "../images/bud-hero.png";
 import fatsiaLeaf from "../images/fatsia-leaf.png";
 import flowerOpen from "../images/flower-open.png";
-import { site, contact, areas, supportOffered, url } from "../config";
+import { site, contact, areas, url } from "../config";
 ---
 
 <BaseLayout>
@@ -149,12 +148,12 @@ import { site, contact, areas, supportOffered, url } from "../config";
     </div>
   </section>
 
-  <!-- ================= Time, and a familiar presence =================
-       Left-aligned and plain, in a single readable column. Why the support
-       matters, before the list of what it includes. -->
+  <!-- ================= What I offer =================
+       Left-aligned and plain, in a single readable column. The detail of the
+       support lives on "How I can help"; this is only the heart of it. -->
   <section class="wrap py-14 sm:py-20">
     <div class="max-w-2xl lg:ml-[5%]">
-      <h2 class="section-title m-0">Time, and a familiar presence</h2>
+      <h2 class="section-title m-0">What I offer</h2>
 
       <div class="mt-5 prose-block">
         <p>
@@ -163,10 +162,9 @@ import { site, contact, areas, supportOffered, url } from "../config";
           practical things to sort out, and difficult conversations to begin.
         </p>
         <p>
-          Alongside all of this, there is often a need simply for time: to
-          talk, to say how you're feeling, or just to sit quietly together. In a
-          world where everyone is under pressure, unhurried time is what matters
-          most.
+          Alongside all of this, I offer time: to talk, to say how you're
+          feeling, or just to sit quietly together. In a world where everyone is
+          under pressure, unhurried time is what matters most.
         </p>
         <p>
           I can become a familiar presence to be relied on, which can be
@@ -174,52 +172,10 @@ import { site, contact, areas, supportOffered, url } from "../config";
           away, and for anyone coping with the emotional demands of caring.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- ================= How I can help =================
-       On a cream band. Two columns on wide screens so the list doesn't run
-       down the page as one long thin ribbon. The list comes from
-       `supportOffered` in src/config.ts. -->
-  <section class="bg-cream border-y border-rule">
-    <div class="wrap py-14 sm:py-20">
-      <div class="lg:mx-[5%]">
-        <h2 class="section-title m-0">How I can help</h2>
-        <p class="mt-3 mb-0">Practical and emotional support can include:</p>
-
-        <ul class="mt-6 grid gap-x-12 gap-y-1 md:grid-cols-2 list-none m-0 p-0">
-          {
-            supportOffered.map((item) => (
-              <li class="flex gap-4 py-4 border-b border-rule">
-                <Leaf class="w-5 mt-2 self-start" />
-                <span>{item}</span>
-              </li>
-            ))
-          }
-        </ul>
-
-        <p class="mt-8 mb-0 max-w-2xl">
-          I work alongside existing GP, hospice, palliative care, nursing and
-          social services. My support complements professional clinical care
-          and does not in any way replace it.
-        </p>
-
-        <p class="mt-6 mb-0">
-          <a href={url("/how-i-can-help")}>More about how I can help →</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= Experience and professional background =========
-       One list rather than separate cards; shared with the About page. -->
-  <section class="wrap py-14 sm:py-20">
-    <div class="max-w-2xl lg:ml-[5%]">
-      <h2 class="section-title m-0">Experience and professional background</h2>
-
-      <div class="mt-6">
-        <Background />
-      </div>
+      <p class="mt-8 mb-0">
+        <a href={url("/how-i-can-help")}>See how I can help →</a>
+      </p>
     </div>
   </section>
 
