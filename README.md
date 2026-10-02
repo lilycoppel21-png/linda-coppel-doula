@@ -4,10 +4,10 @@ A small, calm, fast website built with [Astro](https://astro.build) and
 [Tailwind CSS](https://tailwindcss.com).
 
 One page, read by scrolling. The opening fills the first screen (Life Endings,
-Linda's name and role, phone, email, area). Below it, in order: About me, Why
-unhurried time matters, How I can help, Support for families and carers,
-Experience and professional background, and Let's Have a Conversation. The menu
-jumps to the About me, How I can help and Let's Have a Conversation sections.
+Linda's name and role, phone, email, area). Below it, in order: What Matters to
+Me, How I Can Help, Experience and Professional Background, and Let's Have a
+Conversation. The menu jumps to the What Matters to Me, How I Can Help and
+Let's Have a Conversation sections.
 
 ## Running it
 
@@ -30,7 +30,6 @@ once there and every page updates.
 | Name, role, Life Endings and its tagline, site description | `site` |
 | Phone number and email | `contact` |
 | Menu items | `site.nav` |
-| The "practical and emotional support" list | `supportOffered` |
 | Qualifications and experience | `background` |
 | Areas covered | `areas` |
 

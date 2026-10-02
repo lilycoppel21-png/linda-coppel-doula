@@ -239,12 +239,12 @@
   /* Vertical rhythm for the sections below the opening. Generous, so each
      one reads as its own step. */
   .section {
-    padding-block: 5rem;
+    padding-block: 4rem;
   }
 
   @media (min-width: 640px) {
     .section {
-      padding-block: 7rem;
+      padding-block: 5.5rem;
     }
   }
 
@@ -263,7 +263,17 @@
 
   /* Section headings (H2). */
   .section-title {
-    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    font-size: clamp(1.75rem, 3.4vw, 2.375rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* The large figure in each professional background entry ("30+", "16"). */
+  .credential-figure {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-forest);
   }
 
   /* The serif lead line that sits under a title. */

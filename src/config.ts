@@ -53,38 +53,26 @@ export const contact = {
 };
 
 /*
-  What the support can offer.
-  ---------------------------
-  Shown as a list in the "How I can help" section. Add, remove or reword freely.
-*/
-export const supportOffered = [
-  "Being a regular and reassuring presence",
-  "Exploring relationships, unresolved issues and what matters most",
-  "Helping with advance planning and communicating wishes",
-  "Having conversations about dying and death",
-  "Living life right up to the end",
-  "Supporting family members and carers",
-  "Helping with everyday practicalities if needed",
-];
-
-/*
   Professional background.
   ------------------------
-  Shown as one list in the qualifications section. `detail` is optional — leave it out and
-  only the main line shows.
+  Shown side by side in the "Experience and Professional Background" section.
+  `figure` is set large, so the length of experience reads at a glance;
+  `title` follows it, and `detail` (optional) sits underneath in smaller type.
 */
 export const background = [
   {
-    title: "Certified End of Life Doula",
-    detail:
-      "Crossfields Institute. Completed the required residential training and a 5,000 word portfolio.",
-  },
-  {
-    title: "16 years as a bereavement counsellor",
-  },
-  {
-    title: "Over 30 years as a therapist",
+    figure: "30+",
+    title: "years as a therapist",
     detail: "Working with both individuals and communities.",
+  },
+  {
+    figure: "16",
+    title: "years as a bereavement counsellor",
+  },
+  {
+    figure: "Certified",
+    title: "End of Life Doula",
+    detail: "Crossfields Institute",
   },
 ];
 

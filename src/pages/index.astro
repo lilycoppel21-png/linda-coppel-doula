@@ -9,23 +9,21 @@
   this order:
 
     1. Opening — Life Endings, the tagline, Linda's name and role, contact.
-    2. About me (#about) — who she is and the kind of support she offers.
-    3. Why unhurried time matters.
-    4. How I can help (#how-i-can-help) — the list of support, and the
-       clinical care note.
-    5. Support for families and carers.
-    6. Experience and professional background.
-    7. Let's Have a Conversation (#contact) — phone, email, areas covered.
+    2. What Matters to Me (#about).
+    3. How I Can Help (#how-i-can-help) — the support, families and carers,
+       and the clinical care note.
+    4. Experience and Professional Background.
+    5. Let's Have a Conversation (#contact) — phone, email, areas covered.
 
   Sections alternate between the pale green page and a cream band, with a fine
   rule between them, so each reads as its own step without looking like a
   stack of cards.
 
-  Photographs are kept to three: the open magnolia in the opening, a fatsia
-  leaf by "Why unhurried time matters", and the magnolia bud closing the page.
+  Photographs are kept to two: the open magnolia in the opening, and a fatsia
+  leaf by "What Matters to Me".
 
   To change the wording, edit the text below. The name, phone number, email,
-  areas, list of support and qualifications come from src/config.ts.
+  areas and qualifications come from src/config.ts.
 */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Leaf from "../components/Leaf.astro";
@@ -33,8 +31,7 @@ import Background from "../components/Background.astro";
 import { Image } from "astro:assets";
 import magnoliaHero from "../images/magnolia-hero.png";
 import fatsiaLeaf from "../images/fatsia-leaf.png";
-import budHero from "../images/bud-hero.png";
-import { site, contact, areas, supportOffered } from "../config";
+import { site, contact, areas } from "../config";
 ---
 
 <BaseLayout>
@@ -127,231 +124,165 @@ import { site, contact, areas, supportOffered } from "../config";
     </div>
   </section>
 
-  <!-- ================= 2. About me =================
-       On a cream band. The descriptive language starts here: two serif lines
-       carry on directly from the opening, then the personal paragraphs. -->
-  <section id="about" class="section bg-cream border-y border-rule">
-    <div class="wrap">
-      <div class="lg:mx-[5%] grid gap-10 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-6">
-          <p class="label m-0">About me</p>
-          <p class="lead mt-5 mb-0 text-forest">
-            Compassionate, non-medical support for people approaching the end of
-            their lives, and for the families and friends around them.
-          </p>
-          <p class="lead mt-6 mb-0">
-            I offer a gentle, calming presence, respecting each person's
-            beliefs, wishes and choices.
-          </p>
-        </div>
-
-        <div class="lg:col-span-6 prose-block lg:pt-11">
-          <p>
-            My aim is to help people feel supported to live their life as fully
-            as possible in the time that remains, and to support those close to
-            them through what can be an incredibly challenging time.
-          </p>
-          <p>
-            I bring compassion, warmth and gentleness, together with
-            professional experience and a willingness to meet each person
-            exactly where they are. I want to understand what gives meaning to
-            someone's life.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 3. Why unhurried time matters =================
+  <!-- ================= 2. What Matters to Me (#about) =================
        The fatsia leaf reaches in from the top-left corner, so the words sit
        to the right of it on wide screens. -->
-  <section class="section relative overflow-hidden">
+  <section id="about" class="section relative overflow-hidden border-t border-rule">
     <div
-      class="hidden md:block absolute left-[-3%] top-[-6%] w-[24%] max-w-[29.375rem]
+      class="hidden md:block absolute left-[-3%] top-[-6%] w-[22%] max-w-[29.375rem]
              pointer-events-none botanical feather"
     >
       <Image
         src={fatsiaLeaf}
         alt=""
         widths={[470]}
-        sizes="24vw"
+        sizes="22vw"
         class="w-full h-auto"
       />
     </div>
 
     <div class="wrap relative">
-      <div class="max-w-2xl md:ml-[30%]">
-        <h2 class="section-title m-0">Why unhurried time matters</h2>
+      <div class="max-w-2xl md:ml-[28%]">
+        <h2 class="section-title m-0">What Matters to Me</h2>
 
         <div class="mt-6 prose-block">
+          <p>
+            My aim is to help people feel supported to live their life as fully
+            as possible in the time that remains, and to support those close to
+            them through what can be an incredibly challenging time.
+          </p>
           <p>
             When someone is diagnosed with a life limiting illness, life can
             suddenly feel very uncertain. There may be medical decisions to
             make, practical things to sort out, and difficult conversations to
             begin.
           </p>
-          <p>
-            Alongside all of this, there is often a need simply for time: time
-            to talk, to say how you're feeling, or just to sit quietly together.
-          </p>
         </div>
-
-        <p class="pull-line mt-10 mb-0">
-          In a world where everyone is under pressure, unhurried time is what
-          matters most.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- ================= 4. How I can help =================
-       On a cream band. Two columns on wide screens so the list doesn't run
-       down the page as one long thin ribbon. -->
+  <!-- ================= 3. How I Can Help (#how-i-can-help) =================
+       On a cream band. The support itself on the left, written as prose
+       rather than a list; families and carers, and the clinical care note,
+       on the right. -->
   <section id="how-i-can-help" class="section bg-cream border-y border-rule">
     <div class="wrap">
       <div class="lg:mx-[5%]">
-        <h2 class="section-title m-0">How I can help</h2>
-        <p class="mt-4 mb-0 max-w-2xl">
-          Every person has their own way of experiencing illness, dying and
-          death. My role is to listen carefully, and to understand what is
-          important to that particular person. Practical and emotional support
-          can include:
-        </p>
+        <h2 class="section-title m-0">How I Can Help</h2>
 
-        <ul class="mt-8 grid gap-x-12 md:grid-cols-2 list-none m-0 p-0 border-t border-rule md:border-t-0">
-          {
-            supportOffered.map((item, i) => (
-              <li
-                class:list={[
-                  "flex gap-4 py-4 border-b border-rule",
-                  i < 2 && "md:border-t",
-                ]}
-              >
-                <Leaf class="w-5 mt-2 self-start" />
-                <span>{item}</span>
-              </li>
-            ))
-          }
-        </ul>
+        <div class="mt-6 grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-7 prose-block">
+            <p>
+              Every person has their own way of experiencing illness, dying and
+              death. My role is to listen carefully, and to understand what is
+              important to that particular person.
+            </p>
+            <p>
+              I can be a regular and reassuring presence: someone to have
+              conversations about dying and death with, and to explore
+              relationships, unresolved issues and what matters most. I can
+              help with advance planning and communicating wishes, and with
+              everyday practicalities if needed, so that life can be lived
+              right up to the end.
+            </p>
+          </div>
 
-        <div class="mt-12 max-w-2xl">
-          <p class="label m-0">Alongside your clinical care</p>
-          <p class="mt-3 mb-0">
-            I work alongside existing GP, hospice, palliative care, nursing and
-            social services. My support complements professional clinical care
-            and does not in any way replace it.
-          </p>
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <h3 class="font-display text-xl text-forest m-0">
+                For families and carers
+              </h3>
+              <p class="mt-2 mb-0">
+                My support reaches the people around the person, too. I can
+                become a familiar presence to be relied on, which can be
+                invaluable for working family members, for those living some
+                distance away, and for anyone coping with the emotional demands
+                of caring.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-xl text-forest m-0">
+                Alongside your clinical care
+              </h3>
+              <p class="mt-2 mb-0">
+                I work alongside existing GP, hospice, palliative care, nursing
+                and social services. My support complements professional
+                clinical care and does not in any way replace it.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= 5. Support for families and carers =================
-       Heading on the left, words on the right. -->
+  <!-- ================= 4. Experience and Professional Background ========
+       The entries come from `background` in src/config.ts. -->
   <section class="section">
     <div class="wrap">
-      <div class="lg:mx-[5%] grid gap-6 lg:grid-cols-12 lg:gap-16">
-        <h2 class="section-title m-0 lg:col-span-4">
-          Support for families and carers
-        </h2>
+      <div class="lg:mx-[5%]">
+        <h2 class="section-title m-0">Experience and Professional Background</h2>
 
-        <div class="lg:col-span-7 prose-block">
-          <p>
-            My support reaches the people around the person, too. I can become
-            a familiar presence to be relied on, which can be invaluable for
-            working family members, for those living some distance away, and
-            for anyone coping with the emotional demands of caring.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 6. Experience and professional background ========
-       On a cream band. One list rather than separate boxes; the entries come
-       from `background` in src/config.ts. -->
-  <section class="section bg-cream border-y border-rule">
-    <div class="wrap">
-      <div class="lg:mx-[5%] grid gap-8 lg:grid-cols-12 lg:gap-16">
-        <h2 class="section-title m-0 lg:col-span-4">
-          Experience and professional background
-        </h2>
-
-        <div class="lg:col-span-7">
+        <div class="mt-8">
           <Background />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= 7. Let's Have a Conversation =================
-       The magnolia bud closes the page, low on the right and running off the
-       edge. -->
-  <section id="contact" class="section relative overflow-hidden">
-    <div
-      class="hidden lg:block absolute right-[-4%] bottom-[-4%] w-[28%] max-w-[28.4375rem]
-             pointer-events-none botanical feather"
-    >
-      <Image
-        src={budHero}
-        alt=""
-        widths={[455]}
-        sizes="28vw"
-        class="w-full h-auto"
-      />
-    </div>
+  <!-- ================= 5. Let's Have a Conversation (#contact) ==========
+       On a cream band. How to get in touch on the left, the areas covered on
+       the right, so the section stays short. -->
+  <section id="contact" class="section bg-cream border-t border-rule">
+    <div class="wrap">
+      <div class="lg:mx-[5%] grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <h2 class="section-title m-0">Let's Have a Conversation</h2>
 
-    <div class="wrap relative">
-      <div class="lg:ml-[5%] lg:max-w-[60%]">
-        <h2 class="page-title m-0">Let's Have a Conversation</h2>
-
-        <p class="lead mt-5 mb-0 max-w-xl">
-          We can simply talk about your situation and your needs, and whether my
-          support would be right for you.
-        </p>
-
-        <!-- The number is set large and is its own link, so it can be read
-             across a room and tapped without precision. -->
-        <p class="mt-9 mb-0">
-          <a
-            href={`tel:${contact.phoneTel}`}
-            class="font-display text-forest no-underline hover:text-green transition-colors"
-            style="font-size: clamp(2.125rem, 6vw, 3rem);"
-          >
-            {contact.phoneDisplay}
-          </a>
-        </p>
-
-        {
-          contact.email && (
-            <p class="mt-2 mb-0 text-lg">
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            </p>
-          )
-        }
-
-        <p class="text-muted mt-4 mb-0">
-          If I can't answer, please do leave a message and I will call you back.
-        </p>
-
-        <div class="mt-14 pt-10 border-t border-rule">
-          <h3 class="font-display text-xl text-forest m-0">Where I work</h3>
-          <p class="mt-2 mb-0">
-            {areas.region}, with a particular focus on these neighbourhoods.
+          <p class="mt-4 mb-0">
+            We can simply talk about your situation and your needs, and whether
+            my support would be right for you.
           </p>
 
-          <ul class="mt-6 grid gap-x-8 gap-y-2 grid-cols-2 sm:grid-cols-3 list-none m-0 p-0">
-            {
-              areas.neighbourhoods.map((place) => (
-                <li class="flex items-center gap-3">
-                  <Leaf class="w-4" />
-                  <span>{place}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <!-- The number is set large and is its own link, so it can be read
+               across a room and tapped without precision. -->
+          <p class="mt-6 mb-0">
+            <a
+              href={`tel:${contact.phoneTel}`}
+              class="font-display text-forest no-underline hover:text-green transition-colors"
+              style="font-size: clamp(2rem, 4.5vw, 2.75rem);"
+            >
+              {contact.phoneDisplay}
+            </a>
+          </p>
 
-          <p class="mt-6 mb-0 text-muted">
+          {
+            contact.email && (
+              <p class="mt-1 mb-0 text-lg">
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </p>
+            )
+          }
+
+          <p class="text-muted text-base mt-4 mb-0">
+            If I can't answer, please do leave a message and I will call you
+            back.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 lg:pt-1">
+          <h3 class="font-display text-xl text-forest m-0">Where I work</h3>
+          <p class="mt-2 mb-0">
+            {areas.region}, with a particular focus on:
+          </p>
+
+          <p class="mt-3 mb-0 text-forest">
+            {areas.neighbourhoods.join(" · ")}
+          </p>
+
+          <p class="mt-4 mb-0 text-muted text-base">
             If you are just outside these areas, please still do call. It may
             well be possible.
           </p>

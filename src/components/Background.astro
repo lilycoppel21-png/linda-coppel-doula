@@ -1,29 +1,32 @@
 ---
 /*
-  Background — the professional qualifications, as one list.
-  ----------------------------------------------------------
-  Used in the qualifications section. Each qualification is a line of
-  its own, separated by a hairline, so the whole thing reads as one block
-  rather than as separate boxes. The membership closes the list.
+  Background — the professional qualifications.
+  ---------------------------------------------
+  Three columns on wide screens, divided by fine rules rather than boxed, so
+  they read as one block. The length of experience is set large so it is the
+  first thing the eye takes in. On phones they stack, one under another.
+  The membership closes the block.
 
   The entries come from `background` in src/config.ts.
 */
-import Leaf from "./Leaf.astro";
 import { site, background } from "../config";
 ---
 
-<ul class="list-none m-0 p-0 border-t border-rule">
-  {
-    background.map((item) => (
-      <li class="flex gap-4 py-5 border-b border-rule">
-        <Leaf class="w-5 mt-2 self-start" />
-        <div>
-          <p class="font-display text-xl text-forest m-0">{item.title}</p>
-          {item.detail && <p class="mt-1 mb-0 text-muted">{item.detail}</p>}
-        </div>
-      </li>
-    ))
-  }
-</ul>
+<div>
+  <ul
+    class="list-none m-0 p-0 grid md:grid-cols-3 border-y border-rule
+           divide-y md:divide-y-0 md:divide-x divide-rule"
+  >
+    {
+      background.map((item) => (
+        <li class="py-7 md:py-9 md:px-8 md:first:pl-0 md:last:pr-0">
+          <p class="credential-figure m-0">{item.figure}</p>
+          <p class="font-display text-xl text-forest mt-2 mb-0">{item.title}</p>
+          {item.detail && <p class="mt-2 mb-0 text-muted">{item.detail}</p>}
+        </li>
+      ))
+    }
+  </ul>
 
-<p class="mt-6 mb-0 text-muted">{site.membership}</p>
+  <p class="mt-6 mb-0 text-muted">{site.membership}</p>
+</div>
