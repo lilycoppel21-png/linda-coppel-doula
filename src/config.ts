@@ -16,7 +16,7 @@ export const site = {
   role: "End of Life Doula",
 
   // The name of the practice, and the quiet line beneath it. Shown large at
-  // the top of the home page.
+  // the top of the page.
   practice: "Life Endings",
   tagline: "Time, space, and support for life's final journey.",
 
@@ -28,11 +28,13 @@ export const site = {
   // Professional membership, shown in the footer and on the About page.
   membership: "Member of End of Life Doula UK",
 
-  // Navigation. The name in the top left already links to the home page.
+  // Navigation. The whole site is one page, so each item jumps to a section
+  // of it; the `href` is that section's id. The name in the top left goes back
+  // to the top.
   nav: [
-    { label: "How I can help", href: "/how-i-can-help" },
-    { label: "About me", href: "/about" },
-    { label: "Get in touch", href: "/contact" },
+    { label: "About me", href: "#about" },
+    { label: "How I can help", href: "#how-i-can-help" },
+    { label: "Get in touch", href: "#contact" },
   ],
 };
 
@@ -42,19 +44,18 @@ export const site = {
   `display` is what people read. `tel` is what the phone dials when the number
   is tapped on a mobile — it needs the +44 international form and no spaces.
 
-  There is no email address on the site at the moment. If you'd like one, fill
-  in `email` below and it will appear automatically alongside the phone number.
+  Leave `email` empty to hide it everywhere.
 */
 export const contact = {
   phoneDisplay: "07767 270884",
   phoneTel: "+447767270884",
-  email: "", // e.g. "linda@example.com" — leave empty to hide
+  email: "ldcoppel@gmail.com",
 };
 
 /*
   What the support can offer.
   ---------------------------
-  Shown as a list on the home page and the "How I can help" page. Add, remove or reword freely.
+  Shown as a list in the "How I can help" section. Add, remove or reword freely.
 */
 export const supportOffered = [
   "Being a regular and reassuring presence",
@@ -69,7 +70,7 @@ export const supportOffered = [
 /*
   Professional background.
   ------------------------
-  Shown as one list on the home page and the About page. `detail` is optional — leave it out and
+  Shown as one list in the qualifications section. `detail` is optional — leave it out and
   only the main line shows.
 */
 export const background = [
@@ -90,10 +91,12 @@ export const background = [
 /*
   Areas covered.
   --------------
-  `region` is the broad description; `neighbourhoods` are the specific places
-  listed on the Contact page.
+  `short` sits with the contact details at the top of the page. `region` is
+  the fuller description; `neighbourhoods` are the specific places listed in
+  the "Get in touch" section.
 */
 export const areas = {
+  short: "North and North-West London",
   region: "Home based support across North and North-West London",
   neighbourhoods: [
     "St John's Wood",
@@ -129,10 +132,4 @@ export function url(path: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const rest = path.replace(/^\//, "");
   return rest ? `${base}/${rest}` : `${base}/`;
-}
-
-/* True when `path` is the page being viewed — used to mark the current menu item. */
-export function isCurrent(pathname: string, path: string): boolean {
-  const tidy = (p: string) => p.replace(/\/+$/, "") || "/";
-  return tidy(pathname) === tidy(url(path));
 }

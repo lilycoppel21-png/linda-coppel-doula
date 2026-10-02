@@ -174,15 +174,78 @@
     color: var(--color-muted);
   }
 
-  /* The tagline under "Life Endings" at the top of the home page. Set in the
-     serif's italic and muted, so it reads as a quiet aside rather than a
-     slogan. */
+  /* ---- The opening ----
+     "Life Endings" set large, the tagline in spaced sans beneath it, then
+     Linda's name and role, then the contact lines. */
+  .brand-title {
+    font-size: clamp(3rem, 7vw, 5.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
   .hero-tagline {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    line-height: 1.45;
+    font-family: var(--font-sans);
+    font-size: clamp(1.0625rem, 1.7vw, 1.375rem);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
     color: var(--color-muted);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.125rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--color-forest);
+  }
+
+  .hero-role {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-green);
+  }
+
+  /* One contact line: a pale round icon, then the detail in the serif. Set as
+     a flex row so the whole line is the tap target. */
+  .contact-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.125rem;
+    min-height: 3rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.1875rem, 1.6vw, 1.375rem);
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  a.contact-line:hover {
+    color: var(--color-green);
+  }
+
+  .contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    background-color: var(--color-sage-deep);
+    color: var(--color-forest);
+  }
+
+  /* Vertical rhythm for the sections below the opening. Generous, so each
+     one reads as its own step. */
+  .section {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-block: 7rem;
+    }
   }
 
   /* The large, quiet line at the top of the home page. */
@@ -225,16 +288,6 @@
     margin-top: 1.15em;
   }
 
-  /* A cream card, lifted off the pale green page.
-     No outline: a soft shadow reads as something resting on the page, where a
-     1px border reads as a box drawn round it. */
-  .card {
-    background-color: var(--color-cream);
-    border-radius: 1.75rem;
-    padding: 2.25rem 2rem;
-    box-shadow: 0 1px 2px rgb(38 62 42 / 0.04), 0 8px 24px -12px rgb(38 62 42 / 0.16);
-  }
-
   /* The main call button (used for the phone number). */
   .btn {
     display: inline-flex;
@@ -257,16 +310,29 @@
   /* ----------------------------------------------------------
      Botanical photography.
      ----------------------
-     The photographs carry no mask and no frame. Each one has its soft edges
-     dissolved into transparency in the image file itself, along an irregular
-     border, so it meets the page colour without a rectangle, a circle or a
-     feathered outline anywhere. Whichever side runs off the edge of the page
-     is left solid, so it reads as continuing past the screen.
+     No photograph has a frame or a shadow. The opening magnolia has its edges
+     dissolved into transparency in the image file itself; the others are
+     softened at the edges with `.feather` below. Either way they meet the
+     page colour without a rectangle showing.
 
      The only rule here is the arrival: a slow fade the first time a picture
      comes into view. `.js` is set by a small script in the head, so with no
      JavaScript the pictures are simply there from the start.
      ---------------------------------------------------------- */
+  /* For the older photographs, whose backgrounds are baked in rather than
+     transparent: softens every edge so no rectangle shows. The opening
+     magnolia doesn't need it, as its own edges are already transparent. */
+  .feather {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, #000 22%, #000 78%, transparent),
+      linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent, #000 22%, #000 78%, transparent),
+      linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+    mask-composite: intersect;
+  }
+
   .js .botanical {
     opacity: 0;
     transition: opacity 1400ms cubic-bezier(0.22, 0.61, 0.36, 1);

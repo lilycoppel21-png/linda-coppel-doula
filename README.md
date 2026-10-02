@@ -1,16 +1,13 @@
-# Linda Coppel — End of Life Doula
+# Life Endings — Linda Coppel, End of Life Doula
 
 A small, calm, fast website built with [Astro](https://astro.build) and
 [Tailwind CSS](https://tailwindcss.com).
 
-Four pages:
-
-| Page | Address | What it's for |
-| --- | --- | --- |
-| Home | `/` | Short and calm. What the support is, and how to call. |
-| How I can help | `/how-i-can-help` | What the support looks like in practice. |
-| About me | `/about` | What matters to Linda, and her professional background. |
-| Get in touch | `/contact` | The phone number, and the areas covered. |
+One page, read by scrolling. The opening fills the first screen (Life Endings,
+Linda's name and role, phone, email, area). Below it, in order: About me, Why
+unhurried time matters, How I can help, Support for families and carers,
+Experience and professional background, and Let's Have a Conversation. The menu
+jumps to the About me, How I can help and Let's Have a Conversation sections.
 
 ## Running it
 
@@ -30,17 +27,15 @@ once there and every page updates.
 
 | What you want to change | Where in `src/config.ts` |
 | --- | --- |
-| Name, role, site description | `site` |
-| Phone number (and email, if you add one) | `contact` |
+| Name, role, Life Endings and its tagline, site description | `site` |
+| Phone number and email | `contact` |
 | Menu items | `site.nav` |
 | The "practical and emotional support" list | `supportOffered` |
 | Qualifications and experience | `background` |
 | Areas covered | `areas` |
 
-**The wording lives in the page files** in `src/pages/`. Each page is commented
-so you can find the paragraph you want. For example, the three short blocks on
-the home page (Time / A familiar presence / Alongside your care team) are at the
-top of `src/pages/index.astro`.
+**The wording lives in `src/pages/index.astro`.** Each section is commented so
+you can find the paragraph you want.
 
 ### Adding the phone number correctly
 
@@ -172,15 +167,11 @@ src/
   components/
     Header.astro
     Footer.astro
-    Botanical.astro      ← the three-stem planting
-    Sprig.astro          ← a single leaf stem
-    LeafDivider.astro    ← the small leaf mark between sections
-    Leaf.astro           ← one small leaf (bullets, card marks)
+    Background.astro     ← the qualifications list
+    Leaf.astro           ← one small leaf (bullets, the Life Endings mark)
+  images/                ← the botanical photographs
   pages/
-    index.astro          ← home
-    how-i-can-help.astro
-    about.astro
-    contact.astro
+    index.astro          ← the whole site
 public/                  ← served as-is (favicon, and any photos you add)
 ```
 
