@@ -174,14 +174,14 @@
     color: var(--color-muted);
   }
 
-  /* The tagline under the name in the header and footer. Set in the serif's
-     italic, small and muted, so it reads as a quiet aside rather than a
+  /* The tagline under "Life Endings" at the top of the home page. Set in the
+     serif's italic and muted, so it reads as a quiet aside rather than a
      slogan. */
-  .tagline {
+  .hero-tagline {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.9375rem;
-    line-height: 1.4;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.45;
     color: var(--color-muted);
   }
 

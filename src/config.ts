@@ -9,17 +9,16 @@
 */
 
 export const site = {
-  // The name of the service, as it appears in the header, the browser tab, and
-  // the footer.
-  name: "Life Endings",
+  // Name as it appears in the header, the browser tab, and the footer.
+  name: "Linda Coppel",
 
-  // The quiet line that sits under the name in the header and the footer.
-  tagline: "Time, space, and support for life's final journey.",
-
-  // Linda herself, and her role. Used in the opening of the home page, the
-  // About page, the footer, and the browser tab on the home page.
-  person: "Linda Coppel",
+  // The line that sits under the name in the header.
   role: "End of Life Doula",
+
+  // The name of the practice, and the quiet line beneath it. Shown large at
+  // the top of the home page.
+  practice: "Life Endings",
+  tagline: "Time, space, and support for life's final journey.",
 
   // Used as the site's meta description — the sentence search engines show
   // underneath the link. Keep it to one clear sentence.

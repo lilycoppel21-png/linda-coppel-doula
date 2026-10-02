@@ -1,7 +1,6 @@
 ---
 /*
-  Header — the name and its tagline on the left, menu on the right, then a
-  phone line.
+  Header — name and role on the left, menu on the right, then a phone line.
 
   The menu items come from `site.nav` in src/config.ts.
 
@@ -28,7 +27,7 @@ const path = Astro.url.pathname;
           >
             {site.name}
           </span>
-          <span class="block tagline mt-0.5">{site.tagline}</span>
+          <span class="block label mt-0.5">{site.role}</span>
         </span>
       </a>
 

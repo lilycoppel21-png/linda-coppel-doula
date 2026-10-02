@@ -30,10 +30,10 @@ interface Props {
 const { title, description = site.description } = Astro.props;
 
 // Home page reads "Life Endings — Linda Coppel, End of Life Doula".
-// Inner pages read "About me — Life Endings".
+// Inner pages read "About me — Linda Coppel".
 const pageTitle = title
   ? `${title} — ${site.name}`
-  : `${site.name} — ${site.person}, ${site.role}`;
+  : `${site.practice} — ${site.name}, ${site.role}`;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 

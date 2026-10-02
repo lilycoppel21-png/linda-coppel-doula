@@ -8,8 +8,8 @@
   they are shown any list of services.
 
   The page runs in this order:
-    1. Opening — "I am a certified end-of-life doula", and the presence she
-       offers. (The name, Life Endings, and its tagline sit in the header.)
+    1. Opening — the practice, Life Endings, and its tagline, then "I am a
+       certified end-of-life doula" and the presence she offers.
     2. What matters to me — the personal heart of it, on a centred band.
     3. Time, and a familiar presence — why it matters, for the person and
        for the people around them.
@@ -59,15 +59,13 @@ import { site, contact, areas, supportOffered, url } from "../config";
            half the width — wide enough that the two halves read as one
            composition rather than two, and still short of the picture. -->
       <div class="max-w-xl lg:ml-[5%] lg:max-w-[60%]">
-        <p class="label m-0">{site.person}</p>
+        <h1 class="hero-title m-0">{site.practice}</h1>
 
-        <h1 class="hero-title mt-4 mb-0 text-balance">
-          I am a certified end-of-life doula.
-        </h1>
+        <p class="hero-tagline mt-3 mb-0">{site.tagline}</p>
 
-        <p class="lead mt-7 mb-0">
-          I offer a gentle, calming presence, respecting each person's beliefs,
-          wishes, and choices.
+        <p class="lead mt-8 mb-0">
+          I am a certified end-of-life doula. I offer a gentle, calming
+          presence, respecting each person's beliefs, wishes, and choices.
         </p>
 
         <p class="mt-5 mb-0">
