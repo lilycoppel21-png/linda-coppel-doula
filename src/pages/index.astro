@@ -154,13 +154,14 @@ import { site, contact, areas } from "../config";
           </p>
           <p>
             My aim is to help people feel supported to live their life as fully
-            as possible in the time that remains, and to support those close to
-            them through what can be an incredibly challenging time.
+            as possible in the time that remains.
           </p>
           <p>
             Time to talk, time to express feelings, time to sit quietly and
-            simply be with the person. In a world where everyone is under
-            pressure, unhurried time is often what matters the most.
+            simply be with the person, and support those close to them through
+            what can be an incredibly challenging time. In a world where
+            everyone is under pressure, unhurried time is often what matters
+            the most.
           </p>
         </div>
       </div>
@@ -173,47 +174,48 @@ import { site, contact, areas } from "../config";
        on the right. -->
   <section id="how-i-can-help" class="section bg-cream border-y border-rule">
     <div class="wrap">
-      <div>
-        <h2 class="section-title m-0">How I Can Help</h2>
+      <!-- On wide screens this is a two-by-two grid, so "How I Can Help" and
+           "For Families and Carers" share the top row and line up along
+           their baselines. On phones it simply runs top to bottom. -->
+      <div class="grid gap-x-14 lg:grid-cols-2 lg:items-baseline">
+        <h2 class="section-title m-0 lg:col-start-1 lg:row-start-1">
+          How I Can Help
+        </h2>
 
-        <div class="mt-5 grid gap-8 lg:grid-cols-2 lg:gap-14">
-          <div class="prose-block">
-            <p>
-              Every person has their own way of experiencing illness, dying and
-              death. My role is to listen carefully, and to understand what is
-              important to that particular person.
-            </p>
-            <p>
-              I can be a regular and reassuring presence: someone to have
-              conversations about dying and death with, and to explore
-              relationships, unresolved issues and what matters most. I can
-              help with advance planning and communicating wishes, and with
-              everyday practicalities if needed, so that life can be lived
-              right up to the end.
-            </p>
-          </div>
+        <div class="prose-block mt-5 lg:col-start-1 lg:row-start-2 lg:self-start">
+          <p>
+            Every person has their own way of experiencing illness, dying and
+            death. My role is to listen carefully, and to understand what is
+            important to that particular person.
+          </p>
+          <p>
+            I can be a regular and reassuring presence: someone to have
+            conversations about dying and death with, and to explore
+            relationships, unresolved issues and what matters most. I can help
+            with advance planning and communicating wishes, and with everyday
+            practicalities if needed, so that life can be lived right up to
+            the end.
+          </p>
+        </div>
 
-          <div class="space-y-7">
-            <div>
-              <h3 class="subheading m-0">For Families and Carers</h3>
-              <p class="mt-1.5 mb-0">
-                My support reaches the people around the person, too. I can
-                become a familiar presence to be relied on, which can be
-                invaluable for working family members, for those living some
-                distance away, and for anyone coping with the emotional demands
-                of caring.
-              </p>
-            </div>
+        <h3 class="subheading m-0 mt-8 lg:mt-0 lg:col-start-2 lg:row-start-1">
+          For Families and Carers
+        </h3>
 
-            <div>
-              <h3 class="subheading m-0">Alongside Your Clinical Care</h3>
-              <p class="mt-1.5 mb-0">
-                I work alongside existing GP, hospice, palliative care, nursing
-                and social services. My support complements professional
-                clinical care and does not in any way replace it.
-              </p>
-            </div>
-          </div>
+        <div class="mt-1.5 lg:mt-5 lg:col-start-2 lg:row-start-2 lg:self-start">
+          <p class="m-0">
+            My support reaches the people around the person, too. I can become
+            a familiar presence to be relied on, which can be invaluable for
+            working family members, for those living some distance away, and
+            for anyone coping with the emotional demands of caring.
+          </p>
+
+          <h3 class="subheading mt-7 mb-0">Alongside Your Clinical Care</h3>
+          <p class="mt-1.5 mb-0">
+            I work alongside existing GP, hospice, palliative care, nursing and
+            social services. My support complements professional clinical care
+            and does not in any way replace it.
+          </p>
         </div>
       </div>
     </div>
